@@ -26,8 +26,8 @@ const dateLabel = (article: Article) =>
   });
 
 const featured = articles.slice(0, 5);
-const recent = articles.slice(5, 10);
-const fashion = byCategory("fashion").slice(0, 5);
+const recent = articles.slice(5, 11);
+const fashion = byCategory("fashion").slice(0, 8);
 const food = byCategory("food").slice(0, 5);
 const destinations = byCategory("destinations").slice(0, 5);
 const aviation = byCategory("aviation").slice(0, 4);
@@ -62,34 +62,48 @@ const latest = articles.slice(10, 18);
 
         <div class="editorial-grid">
           <aside class="left-rail">
-            <a class="destination-promo" href={articleUrl(destinations[0])}>
-              <img src={articleImage(destinations[0])} alt="" />
-              <span>Discover somewhere new</span>
+            <a class="destination-promo" href="/destinations">
+              <img src="/wp-content/uploads/2023/12/shutterstockRF1034336518.avif" alt="Travel destination" />
             </a>
 
             <section class="panel">
               <header class="section-heading"><h2>Destinations</h2></header>
-              <a class="rail-lead" href={articleUrl(destinations[1])}>
-                <img src={articleImage(destinations[1])} alt="" />
-                <h3>{articleTitle(destinations[1])}</h3>
-              </a>
-              {destinations.slice(2, 5).map((article) => (
-                <a class="rail-link" href={articleUrl(article)}>{articleTitle(article)}</a>
+              {destinations.map((article) => (
+                <a class="rail-row" href={articleUrl(article)}>
+                  <img src={articleImage(article)} alt="" />
+                  <div>
+                    <h3>{articleTitle(article)}</h3>
+                    <time datetime={article.data.date}>{dateLabel(article)}</time>
+                  </div>
+                </a>
               ))}
             </section>
+            <a class="rail-feature" href={articleUrl(aviation[0])}>
+              <img src={articleImage(aviation[0])} alt="" />
+              <div><span>Travel smarter</span><h3>{articleTitle(aviation[0])}</h3></div>
+            </a>
           </aside>
 
           <div class="center-column">
             <section class="panel">
               <header class="section-heading"><h2>Fashion</h2></header>
-              <div class="feature-list">
-                <a class="section-lead" href={articleUrl(fashion[0])}>
-                  <img src={articleImage(fashion[0])} alt="" />
-                  <h3>{articleTitle(fashion[0])}</h3>
-                  <time datetime={fashion[0].data.date}>{dateLabel(fashion[0])}</time>
-                </a>
-                <div class="section-links">
-                  {fashion.slice(1, 5).map((article) => (
+              <div class="fashion-layout">
+                <div class="fashion-visuals">
+                  <a class="fashion-lead" href={articleUrl(fashion[0])}>
+                    <img src={articleImage(fashion[0])} alt="" />
+                    <h3>{articleTitle(fashion[0])}</h3>
+                  </a>
+                  <div class="fashion-thumbs">
+                    {fashion.slice(1, 3).map((article) => (
+                      <a href={articleUrl(article)}>
+                        <img src={articleImage(article)} alt="" />
+                        <h3>{articleTitle(article)}</h3>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div class="fashion-links">
+                  {fashion.slice(3, 8).map((article) => (
                     <a href={articleUrl(article)}>
                       <h3>{articleTitle(article)}</h3>
                       <time datetime={article.data.date}>{dateLabel(article)}</time>
@@ -123,22 +137,28 @@ const latest = articles.slice(10, 18);
         </div>
       </div>
 
-      <aside class="recent-panel panel">
-        <header class="section-heading"><h2>Recent Posts</h2></header>
-        <a class="recent-lead" href={articleUrl(recent[0])}>
-          <img src={articleImage(recent[0])} alt="" />
-          <h3>{articleTitle(recent[0])}</h3>
-          <time datetime={recent[0].data.date}>{dateLabel(recent[0])}</time>
-        </a>
-        {recent.slice(1).map((article) => (
-          <a class="recent-row" href={articleUrl(article)}>
-            <img src={articleImage(article)} alt="" />
-            <div>
-              <h3>{articleTitle(article)}</h3>
-              <time datetime={article.data.date}>{dateLabel(article)}</time>
-            </div>
+      <aside class="right-rail">
+        <section class="recent-panel panel">
+          <header class="section-heading"><h2>Recent Posts</h2></header>
+          <a class="recent-lead" href={articleUrl(recent[0])}>
+            <img src={articleImage(recent[0])} alt="" />
+            <h3>{articleTitle(recent[0])}</h3>
+            <time datetime={recent[0].data.date}>{dateLabel(recent[0])}</time>
           </a>
-        ))}
+          {recent.slice(1).map((article) => (
+            <a class="recent-row" href={articleUrl(article)}>
+              <img src={articleImage(article)} alt="" />
+              <div>
+                <h3>{articleTitle(article)}</h3>
+                <time datetime={article.data.date}>{dateLabel(article)}</time>
+              </div>
+            </a>
+          ))}
+        </section>
+        <a class="sidebar-feature" href={articleUrl(destinations[0])}>
+          <img src={articleImage(destinations[0])} alt="" />
+          <div><span>Editor’s pick</span><h3>{articleTitle(destinations[0])}</h3></div>
+        </a>
       </aside>
     </section>
 
@@ -221,7 +241,7 @@ const latest = articles.slice(10, 18);
   .feature-grid {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    grid-auto-rows: 208px;
+    grid-template-rows: 212px 208px;
     gap: 4px;
   }
 
@@ -239,7 +259,8 @@ const latest = articles.slice(10, 18);
 
   .feature-card img,
   .destination-promo img,
-  .section-lead img,
+  .fashion-lead img,
+  .fashion-thumbs img,
   .food-lead img,
   .recent-lead img,
   .aviation-card img,
@@ -250,7 +271,8 @@ const latest = articles.slice(10, 18);
   }
 
   .feature-card::after,
-  .section-lead::after {
+  .fashion-lead::after,
+  .fashion-thumbs a::after {
     content: "";
     position: absolute;
     inset: 35% 0 0;
@@ -350,50 +372,89 @@ const latest = articles.slice(10, 18);
     color: #fff;
   }
 
-  .destination-promo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  .rail-feature,
+  .sidebar-feature {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    color: #fff;
   }
 
-  .destination-promo span {
-    position: absolute;
-    z-index: 1;
-    left: 16px;
-    bottom: 15px;
-    font: 700 19px/1.1 "Roboto", Arial, sans-serif;
+  .rail-feature {
+    height: 300px;
+    margin-top: 20px;
   }
 
-  .rail-lead {
-    display: grid;
-    grid-template-columns: 94px 1fr;
-    gap: 12px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #e9e9e9;
-  }
-
-  .rail-lead img {
-    width: 94px;
-    height: 72px;
+  .rail-feature img,
+  .sidebar-feature img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
-  .rail-lead h3,
-  .rail-link,
+  .rail-feature::after,
+  .sidebar-feature::after {
+    content: "";
+    position: absolute;
+    inset: 35% 0 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.84));
+  }
+
+  .rail-feature > div,
+  .sidebar-feature > div {
+    position: absolute;
+    z-index: 1;
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+  }
+
+  .rail-feature span,
+  .sidebar-feature span {
+    display: block;
+    margin-bottom: 7px;
+    color: #8ee0aa;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .rail-feature h3,
+  .sidebar-feature h3 {
+    margin: 0;
+    color: #fff;
+    font: 700 19px/1.2 "Roboto", Arial, sans-serif;
+  }
+
+  .rail-row {
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    gap: 14px;
+    min-height: 96px;
+    padding: 0 0 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  .rail-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .rail-row img {
+    width: 95px;
+    height: 63px;
+    object-fit: cover;
+  }
+
+  .rail-row h3,
   .recent-row h3,
   .popular-row h3 {
-    font: 700 14px/1.28 "Roboto", Arial, sans-serif;
+    font: 700 13px/1.25 "Roboto", Arial, sans-serif;
   }
 
-  .rail-lead h3 {
-    margin: 0;
-  }
-
-  .rail-link {
-    display: block;
-    padding: 14px 0;
-    border-bottom: 1px solid #e9e9e9;
+  .rail-row h3 {
+    margin: 0 0 7px;
   }
 
   .center-column {
@@ -401,54 +462,72 @@ const latest = articles.slice(10, 18);
     gap: 20px;
   }
 
-  .feature-list {
+  .fashion-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1.55fr) minmax(180px, 0.85fr);
+    grid-template-columns: minmax(0, 414px) minmax(0, 151px);
     gap: 20px;
   }
 
-  .section-lead {
+  .fashion-lead,
+  .fashion-thumbs a {
     position: relative;
     display: block;
-    min-height: 332px;
     overflow: hidden;
     color: #fff;
   }
 
-  .section-lead h3 {
+  .fashion-lead {
+    height: 276px;
+  }
+
+  .fashion-lead h3,
+  .fashion-thumbs h3 {
     position: absolute;
     z-index: 1;
-    right: 18px;
-    bottom: 42px;
-    left: 18px;
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
     margin: 0;
     color: #fff;
-    font: 700 23px/1.18 "Roboto", Arial, sans-serif;
+    font: 700 20px/1.17 "Roboto", Arial, sans-serif;
   }
 
-  .section-lead time {
-    position: absolute;
-    z-index: 1;
-    bottom: 18px;
-    left: 18px;
-    color: rgba(255, 255, 255, 0.8);
+  .fashion-thumbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 20px;
   }
 
-  .section-links a {
+  .fashion-thumbs a {
+    height: 131px;
+  }
+
+  .fashion-thumbs h3 {
+    font-size: 14px;
+  }
+
+  .fashion-links a {
     display: block;
-    padding: 0 0 15px;
-    margin-bottom: 15px;
+    height: 89px;
+    padding: 0 0 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
     border-bottom: 1px solid #e7e7e7;
   }
 
-  .section-links h3 {
+  .fashion-links h3 {
+    display: -webkit-box;
+    overflow: hidden;
     margin: 0 0 7px;
-    font: 700 15px/1.25 "Roboto", Arial, sans-serif;
+    font: 700 14px/1.24 "Roboto", Arial, sans-serif;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 
   .food-layout {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: 293px minmax(0, 273px);
     gap: 20px;
   }
 
@@ -457,7 +536,7 @@ const latest = articles.slice(10, 18);
   }
 
   .food-lead img {
-    height: 190px;
+    height: 195px;
   }
 
   .food-lead h3 {
@@ -467,20 +546,21 @@ const latest = articles.slice(10, 18);
 
   .food-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 0;
   }
 
   .food-list a {
     display: grid;
-    grid-template-columns: 68px 1fr;
-    gap: 10px;
+    grid-template-columns: 108px 1fr;
+    gap: 12px;
+    min-height: 96px;
+    padding-bottom: 18px;
     align-items: start;
   }
 
   .food-list img {
-    width: 68px;
-    height: 58px;
+    width: 108px;
+    height: 72px;
     object-fit: cover;
   }
 
@@ -489,8 +569,10 @@ const latest = articles.slice(10, 18);
     font: 700 13px/1.25 "Roboto", Arial, sans-serif;
   }
 
-  .recent-panel {
-    align-self: stretch;
+  .right-rail {
+    display: grid;
+    gap: 20px;
+    align-content: start;
   }
 
   .recent-lead {
@@ -500,31 +582,45 @@ const latest = articles.slice(10, 18);
   }
 
   .recent-lead img {
-    height: 215px;
+    height: 163px;
     margin-bottom: 14px;
   }
 
   .recent-lead h3 {
+    display: -webkit-box;
+    overflow: hidden;
     margin: 0 0 8px;
-    font: 700 22px/1.2 "Roboto", Arial, sans-serif;
+    font: 700 19px/1.2 "Roboto", Arial, sans-serif;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 
   .recent-row {
     display: grid;
-    grid-template-columns: 82px 1fr;
+    grid-template-columns: 95px 1fr;
     gap: 13px;
+    height: 123px;
     padding: 20px 0;
+    overflow: hidden;
     border-bottom: 1px solid #e8e8e8;
   }
 
   .recent-row img {
-    width: 82px;
-    height: 68px;
+    width: 95px;
+    height: 63px;
     object-fit: cover;
   }
 
   .recent-row h3 {
+    display: -webkit-box;
+    overflow: hidden;
     margin: 0 0 7px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .sidebar-feature {
+    height: 679px;
   }
 
   .wide-section {
@@ -624,12 +720,15 @@ const latest = articles.slice(10, 18);
       grid-template-columns: 240px minmax(0, 1fr);
     }
 
-    .feature-list {
+    .fashion-layout,
+    .food-layout {
       grid-template-columns: 1fr;
     }
 
-    .section-lead {
-      min-height: 360px;
+    .fashion-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 16px;
     }
 
     .latest-list {
@@ -658,6 +757,10 @@ const latest = articles.slice(10, 18);
       grid-column: 1 / -1;
     }
 
+    .sidebar-feature {
+      height: 320px;
+    }
+
     .aviation-grid {
       grid-template-columns: 1fr 1fr;
     }
@@ -670,6 +773,7 @@ const latest = articles.slice(10, 18);
 
     .feature-grid {
       grid-template-columns: 1fr;
+      grid-template-rows: none;
       grid-auto-rows: 230px;
     }
 
@@ -684,20 +788,32 @@ const latest = articles.slice(10, 18);
     }
 
     .editorial-grid,
-    .food-layout {
+    .food-layout,
+    .fashion-layout {
       grid-template-columns: 1fr;
     }
 
     .left-rail {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      display: block;
     }
 
     .destination-promo {
-      height: auto;
-      min-height: 260px;
-      margin: 0;
+      height: 240px;
+      margin-bottom: 12px;
+    }
+
+    .rail-feature {
+      height: 260px;
+    }
+
+    .fashion-lead {
+      height: 300px;
+    }
+
+    .fashion-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 16px;
     }
 
     .recent-panel {
@@ -722,13 +838,13 @@ const latest = articles.slice(10, 18);
   }
 
   @media (max-width: 460px) {
-    .left-rail,
-    .food-list {
+    .food-list,
+    .fashion-links {
       grid-template-columns: 1fr;
     }
 
     .destination-promo {
-      min-height: 220px;
+      height: 220px;
     }
   }
 </style>
