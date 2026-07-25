@@ -13,14 +13,14 @@ day: "19"
 <h3>Classic Bistros and Cafes</h3>
 <h4>Le Bon Georges</h4>
 <p>Located near the Galeries Lafayette department store and just below the trendy part of Pigalle, Le Bon Georges is a steak frites bistro that feels like it dates from another era despite opening in 2013. With its mirror or chalkboard menu, wooden chairs, and wine bottles on display, Le Bon Georges is ideal for enjoying classic French dishes such as asparagus in spring and fish with truffles in autumn. The meat, in particular, should be ordered rare or medium-rare.</p>
-<p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-1219" src="http://travelstylehub.com/wp-content/uploads/2024/06/lbg-juin2023_lephotographedudimanche-67_horizontal_hv4lgp.avif" alt="" width="1200" height="900" /></p>
+<p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-1219" src="/wp-content/uploads/2024/06/lbg-juin2023_lephotographedudimanche-67_horizontal_hv4lgp.avif" alt="" width="1200" height="900" /></p>
 <h4>Bistrot Des Tournelles</h4>
 <p>This neighborhood bistro around the Bastille monument is perfect for an introductory or farewell traditional French meal. You&#8217;ll find simple starters like fried mushrooms and buttered artichoke hearts, as well as main courses like chicken cordon bleu. The dishes are served with thin crispy fries, mashed potatoes, or simple spinach.</p>
-<p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-1216" src="http://travelstylehub.com/wp-content/uploads/2024/06/bistrot-des-tournelles-copyright_Ilya_KAGAN_ilyafoodstories-export-25_y6suoi.avif" alt="" width="1200" height="900" /></p>
+<p><img loading="lazy" decoding="async" class="alignnone size-full wp-image-1216" src="/wp-content/uploads/2024/06/bistrot-des-tournelles-copyright_Ilya_KAGAN_ilyafoodstories-export-25_y6suoi.avif" alt="" width="1200" height="900" /></p>
 <h4>L&#8217;Ami Jean</h4>
 <p>Near the Eiffel Tower, L&#8217;Ami Jean is a lively bistro with mismatched furniture and tilted artwork. The tasting menu includes smaller portions of the great classics as well as seasonal dishes like stuffed butternut and tuna belly sandwich stuffed with foie gras. Don&#8217;t leave without trying their famous rice pudding.</p>
 <h4>Parcelles</h4>
-<p>Located in a decades-old space, Parcelles offers both charm and sophistication with revisited French classics. Try the stuffed cabbage with minced pork and foie gras, or the scallops escargot-style. It&#8217;s an ideal spot for a date or to impress visitors.<img loading="lazy" decoding="async" class="alignnone size-full wp-image-1217" src="http://travelstylehub.com/wp-content/uploads/2024/06/parcelles-copyright_Ilya_KAGAN_ilyafoodstories-export-2_dmjbqx.avif" alt="" width="1200" height="900" /></p>
+<p>Located in a decades-old space, Parcelles offers both charm and sophistication with revisited French classics. Try the stuffed cabbage with minced pork and foie gras, or the scallops escargot-style. It&#8217;s an ideal spot for a date or to impress visitors.<img loading="lazy" decoding="async" class="alignnone size-full wp-image-1217" src="/wp-content/uploads/2024/06/parcelles-copyright_Ilya_KAGAN_ilyafoodstories-export-2_dmjbqx.avif" alt="" width="1200" height="900" /></p>
 <h4>Le Chardenoux</h4>
 <p>With its century-old marble bar and aristocratic decor, Le Chardenoux offers a fish-focused menu, with dishes like crispy crab cake and crispy rice with salmon and citrus. It is a perfect place for special occasions.</p>
 <h4>Café De Luce</h4>
@@ -41,4 +41,3 @@ day: "19"
 <p>This wine bar offers a snack-and-sip experience with dishes like whipped tarama and dense sunflower seed bread. Ideal for a late-afternoon snack after a stroll through St.-Germain-des-Prés.</p>
 <h3>Conclusion</h3>
 <p>Whether you&#8217;re a fan of classic French cuisine or looking for something more modern and innovative, Paris offers a multitude of restaurants for all tastes. Make sure to book in advance and fully enjoy every meal in this city of light and flavors.</p>
-

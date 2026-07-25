@@ -29,4 +29,3 @@ day: "27"
 <p>Over time, the sari has evolved to adapt to modern trends while retaining its traditional essence. Contemporary designers reinterpret the sari by using new materials, patterns, and draping styles. This has allowed the sari to remain relevant in the modern wardrobe, while continuing to be a preferred choice for special occasions.</p>
 <h3>Conclusion</h3>
 <p>The sari is a perfect illustration of how a garment can capture the essence of a culture. Through its many variations and rich history, the sari continues to fascinate and inspire, representing both tradition and innovation. As an iconic garment of India, the sari bears witness to the country’s cultural richness and diversity.</p>
-
