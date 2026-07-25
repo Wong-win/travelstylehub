@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { decodeEntities } from "../../utils/decode-entities";
 
 export async function getStaticPaths() {
   const articles = await getCollection("articles");
@@ -38,7 +39,7 @@ articles.sort((a, b) => b.data.date.localeCompare(a.data.date));
               <div class="story-image">
                 <img
                   src={article.data.image || `https://picsum.photos/seed/${article.slug}/640/427`}
-                  alt={article.data.title}
+                  alt={decodeEntities(article.data.title)}
                   loading="lazy"
                   width="640"
                   height="427"
@@ -48,9 +49,9 @@ articles.sort((a, b) => b.data.date.localeCompare(a.data.date));
             <div class="story-body">
               <a href={`/${categorySlug}`} class="story-category">{name}</a>
               <h3 class="story-title">
-                <a href={`/${article.data.year}/${article.data.month}/${article.data.day}/${article.slug}`}>{article.data.title}</a>
+                <a href={`/${article.data.year}/${article.data.month}/${article.data.day}/${article.slug}`}>{decodeEntities(article.data.title)}</a>
               </h3>
-              <p class="story-excerpt">{article.data.excerpt || ""}</p>
+              <p class="story-excerpt">{decodeEntities(article.data.excerpt || "")}</p>
             </div>
           </div>
         ))}
