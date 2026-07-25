@@ -1,0 +1,25 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map(article => ({
+    params: { year: article.data.year, month: article.data.month, day: article.data.day, slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+const name = article.data.category.replace(/-/g, " ").replace(/\b\w/g, (letter: string) => letter.toUpperCase());
+---
+
+<Layout>
+  <article class="article-page">
+    <p class="article-category"><a href={`/${article.data.category}`}>{name}</a></p>
+    <h1>{article.data.title}</h1>
+    <p class="article-meta">Published {new Date(article.data.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+    <div class="article-body"><Content /></div>
+  </article>
+</Layout>

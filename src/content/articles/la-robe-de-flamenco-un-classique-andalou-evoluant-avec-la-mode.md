@@ -1,0 +1,41 @@
+---
+title: "The Flamenco Dress, an Andalusian Classic Evolving with Fashion"
+date: "2024-11-24T03:09:21"
+category: "fashion"
+excerpt: "Luis Fernandez&#8217;s workshop in the old town of Seville is buzzing with clients who have come to try on his dazzling range of flamenco dresses, their vibrant fabrics adorned with voluptuous ruffles and polka dots. Flamenco fashion reaches its annual peak in spring, when the towns and villages of&#8230;"
+image: "/wp-content/uploads/2024/06/show-flamenco-en-sevilla.jpg"
+year: "2024"
+month: "11"
+day: "24"
+---
+
+<p>Luis Fernandez&#8217;s workshop in the old town of Seville is buzzing with clients who have come to try on his dazzling range of flamenco dresses, their vibrant fabrics adorned with voluptuous ruffles and polka dots.</p>
+<p>Flamenco fashion reaches its annual peak in spring, when the towns and villages of the southern Spanish region of Andalusia hold their annual week-long ferias, where everyone turns out in their finest attire to eat, drink, and dance until the early hours.</p>
+<p>One customer is Virginia Cuaresma. Under the designer&#8217;s watchful eye, pins ready to make the necessary adjustments, she stands before the mirror in a traditional navy blue dress, ruffles adorning the skirt and sleeves.<img loading="lazy" decoding="async" class="alignnone size-full wp-image-1296" src="http://travelstylehub.com/wp-content/uploads/2024/06/afp-20240419-34pq66b-v1-highres-spainculturetradition-j81umchf-2024-04-19.avif" alt="" width="1388" height="926" /></p>
+<p>Then she tries on an aquamarine dress, paired with an embroidered fringed shawl of the same color. Next, a more modern-style red dress that leaves plenty of skin exposed.</p>
+<p>&#8220;Right now, everything is in chaos, we are up to our necks&#8230; these are the final adjustments&#8221; before customers return to pick up their dresses &#8220;and enjoy the feria,&#8221; Fernandez told AFP, referring to this southern city&#8217;s prestigious fair which attracts hundreds of thousands of visitors and is being held this year from April 14 to 20.</p>
+<p>The most traditional design, dating back more than 100 years, is a floor-length dress that is tightly fitted at the thigh, flaring out into a ruffled skirt with matching ruffles on the sleeves.</p>
+<p>To complement the dress, women accessorize by wearing a fringed shawl around their shoulders, earrings and bracelets, their hair pulled into a bun and pinned with a comb with a single flower, in an ensemble that has become the image of Andalusia and is even used abroad as a symbol of Spain.</p>
+<p>&#8220;The flamenco dress brings out what is most beautiful in a woman,&#8221; explains Fernandez, pointing to the wide neckline and the &#8220;hourglass silhouette&#8221; that highlights the contrast between the narrow waist and the hips and bust, in a style that is &#8220;very flattering&#8221; and makes the wearer &#8220;beautiful.&#8221;</p>
+<p>&#8220;When I choose a dress to go to the feria, I look for something that will emphasize my feminine silhouette,&#8221; says Cuaresma, a 34-year-old geographer with a dark complexion and long black hair.</p>
+<p>For her, dressing for the feria is a way of &#8220;perpetuating Andalusian traditions&#8221; and connecting with her late grandmother Virginia, who used to sew flamenco dresses when she was a child.<img loading="lazy" decoding="async" class="alignnone size-full wp-image-1295" src="http://travelstylehub.com/wp-content/uploads/2024/06/2655088.webp" alt="" width="700" height="466" srcset="/wp-content/uploads/2024/06/2655088.webp 700w, /wp-content/uploads/2024/06/2655088-300x200.webp 300w, /wp-content/uploads/2024/06/2655088-480x320.webp 480w, /wp-content/uploads/2024/06/2655088-280x186.webp 280w, /wp-content/uploads/2024/06/2655088-601x400.webp 601w, /wp-content/uploads/2024/06/2655088-585x389.webp 585w" sizes="auto, (max-width: 700px) 100vw, 700px" /></p>
+<h2>An Evolving Style</h2>
+<p>A native of Seville and a great lover of the fair, Fernandez began working as a designer in 2012 alongside the couturier Manuel Jurado, and from the very beginning, he knew he wanted to make flamenco dresses.</p>
+<p>For him, it is a unique regional costume &#8220;that evolves with fashion and the only one that incorporates new trends,&#8221; he says with pride.</p>
+<p>The garment has its roots in the so-called &#8220;majo&#8221; costumes &#8220;worn by the working classes&#8221; in Spain at the end of the 18th and early 19th centuries and often captured in the paintings of the Spanish master Goya, explained anthropologist Rosa Maria Martinez Moreno, who has written a book titled &#8220;El Traje de Flamenca&#8221; (&#8220;The Flamenco Dress&#8221;).</p>
+<p>With the beginning of the Seville fairs in the mid-19th century, the style began to be adopted by the wealthy classes at a time when there was a reaction against everything French, including French aristocratic fashions.</p>
+<p>Added to this was the dress of the gypsy women who sold doughnuts at the fair and who wore dresses and skirts adorned with ruffles.</p>
+<p>By the 20th century, the flamenco dress had evolved to take its current form and become popular, largely thanks to the growth of flamenco as an art form and the expansion of schools teaching this Andalusian dance, which women often learn to perform at the fairs, said Martinez Moreno.</p>
+<h2>Image of Spain</h2>
+<p>During the 1960s, General Francisco Franco&#8217;s dictatorship strove to &#8220;sell Spain as a tourist attraction&#8221; and to do so, used &#8220;popular stereotypes&#8221; such as the flamenco dress which &#8220;began to be recognized as the image of Spanishness&#8221; abroad, she adds.</p>
+<p>In recent years, the Andalusian dress has inspired major designers like Christian Dior, who in 2022 presented a new collection at the iconic Plaza de España in Seville.</p>
+<p>Fernandez says that the sector in Seville has become more professional with designers who follow &#8220;trends from Paris and Milan,&#8221; and who have since 1995 organized an international flamenco fashion show in the city.</p>
+<p>An outfit from a workshop like the one Fernandez runs can range from several hundred euros to over a thousand.</p>
+<p>But there are cheaper options today at a time when fashion has become more accessible.</p>
+<p>This is a relief for women like Cuaresma, who says she generally buys &#8220;at least&#8221; one flamenco dress each year because for the fair, or at least the opening day, &#8220;we don&#8217;t like to repeat&#8221; the same outfit worn in previous years.</p>
+<h2>Tradition and Modernity</h2>
+<p>The flamenco dress, or traje de flamenca, is a traditional costume deeply rooted in Andalusian culture. From its origins among the working classes to becoming a national and international icon, the dress has evolved while retaining its fundamental elements. Today, it represents not only a living tradition, but also a form of expression of femininity and beauty.</p>
+<p>Modern designers, like Luis Fernandez, play a crucial role in this evolution. They respect traditions while incorporating contemporary influences, making the flamenco dress a piece that is both timeless and constantly changing. Their work allows this centuries-old tradition to endure while remaining relevant in today&#8217;s fashion world.</p>
+<p>For Andalusian women, and even for those beyond the borders of Andalusia, wearing a flamenco dress is not just a matter of style; it is a way to connect with their cultural roots, express their identity, and participate in a vibrant community tradition. Each year, the ferias are occasions where Andalusian culture is celebrated with fervor, and the flamenco dress is its dazzling symbol.</p>
+<p>In conclusion, the flamenco dress is much more than a simple garment. It is a work of art, a living tradition, and a declaration of Andalusian pride. Thanks to designers like Luis Fernandez, it continues to evolve and adapt, while keeping the essence of what makes it such a cherished symbol for so many people. Whether it is for dancing until dawn at the ferias or for inspiring haute couture collections, the flamenco dress remains a fundamental element of Spain&#8217;s cultural heritage.</p>
+

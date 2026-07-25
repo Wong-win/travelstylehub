@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+const stories = (await getCollection("articles"))
+  .sort((a, b) => b.data.date.localeCompare(a.data.date))
+  .slice(10, 16);
+---
+
+<section class="featured-stories">
+  <p class="section-label">Featured stories</p>
+  <div class="stories-grid">
+    {stories.map(story => (
+      <div class="story-card">
+        <a href={`/${story.data.year}/${story.data.month}/${story.data.day}/${story.slug}`} class="story-image-link">
+          <div class="story-image">
+            <img
+              src={story.data.image || `https://picsum.photos/seed/${story.slug}/640/427`}
+              alt={story.data.title}
+              loading="lazy"
+              width="640"
+              height="427"
+            />
+          </div>
+        </a>
+        <div class="story-body">
+          <a href={`/${story.data.category}`} class="story-category">{story.data.category}</a>
+          <h3 class="story-title"><a href={`/${story.data.year}/${story.data.month}/${story.data.day}/${story.slug}`}>{story.data.title}</a></h3>
+          <p class="story-excerpt">{story.data.excerpt}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

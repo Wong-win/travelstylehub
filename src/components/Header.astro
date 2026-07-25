@@ -1,0 +1,25 @@
+---
+const navItems = [
+  { label: "Aviation", href: "/aviation" },
+  { label: "Destinations", href: "/destinations" },
+  { label: "Fashion", href: "/fashion" },
+  { label: "Food", href: "/food" },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Travel<span>Style Hub</span></a>
+    <nav class="main-nav">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class={currentPath.startsWith(item.href) ? "active" : ""}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

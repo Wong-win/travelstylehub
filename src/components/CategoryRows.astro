@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+const allArticles = await getCollection("articles");
+const categories = [...new Set(allArticles.map(article => article.data.category))]
+  .sort()
+  .map(slug => ({ slug, name: slug.replace(/-/g, " ").replace(/\b\w/g, letter => letter.toUpperCase()) }));
+---
+
+<section class="category-rows">
+  <p class="section-label">Explore by category</p>
+
+  {categories.map(cat => {
+    const catArticles = allArticles
+      .filter(a => a.data.category === cat.slug)
+      .sort((a, b) => b.data.date.localeCompare(a.data.date))
+      .slice(0, 5);
+
+    return (
+      <div class="cat-row">
+        <div class="cat-row-header">
+          <div>
+            <h2 class="cat-row-name">{cat.name}</h2>
+          </div>
+          <a href={`/${cat.slug}`} class="cat-row-more">View all →</a>
+        </div>
+        <div class="cat-row-track">
+          {catArticles.map(article => (
+            <a href={`/${article.data.year}/${article.data.month}/${article.data.day}/${article.slug}`} class="cat-card">
+              <div class="cat-card-image">
+                <img
+                  src={article.data.image || `https://picsum.photos/seed/${article.slug}/400/280`}
+                  alt={article.data.title}
+                  loading="lazy"
+                  width="400"
+                  height="280"
+                />
+              </div>
+              <div class="cat-card-body">
+                <h3 class="cat-card-title">{article.data.title}</h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    );
+  })}
+</section>

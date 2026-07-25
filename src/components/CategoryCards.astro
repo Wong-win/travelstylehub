@@ -1,0 +1,22 @@
+---
+const categories = [
+  { name: "Fashion", icon: "👗", href: "/fashion", count: "5 articles" },
+  { name: "Beauty", icon: "✨", href: "/beauty", count: "5 articles" },
+  { name: "Travel", icon: "🌍", href: "/travel", count: "5 articles" },
+  { name: "Home & Garden", icon: "🏡", href: "/home-garden", count: "5 articles" },
+  { name: "Technology", icon: "⚡", href: "/technology", count: "5 articles" },
+];
+---
+
+<section class="category-grid">
+  <p class="section-label">Explore by Category</p>
+  <div class="category-cards">
+    {categories.map(cat => (
+      <a href={cat.href} class="category-card">
+        <span class="category-icon">{cat.icon}</span>
+        <span class="category-name">{cat.name}</span>
+        <span class="category-count">{cat.count}</span>
+      </a>
+    ))}
+  </div>
+</section>

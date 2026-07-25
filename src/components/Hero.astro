@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+
+const articles = await getCollection("articles");
+articles.sort((a, b) => b.data.date.localeCompare(a.data.date));
+const featured = articles.slice(0, 10);
+
+const categoryName = (slug: string) => slug.replace(/-/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-header">
+      <span class="hero-label">Latest stories</span>
+      <span class="hero-scroll-hint">Scroll →</span>
+    </div>
+  </div>
+  <div class="hero-track-wrapper">
+    <div class="hero-track">
+      {featured.map(article => (
+        <a href={`/${article.data.year}/${article.data.month}/${article.data.day}/${article.slug}`} class="hero-card">
+          <div class="hero-card-image">
+            <img
+              src={article.data.image || `https://picsum.photos/seed/${article.slug}/640/853`}
+              alt={article.data.title}
+              loading="lazy"
+              width="640"
+              height="853"
+            />
+            <div class="hero-card-overlay">
+              <span class="hero-card-category">
+                {categoryName(article.data.category)}
+              </span>
+              <h2 class="hero-card-title">{article.data.title}</h2>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

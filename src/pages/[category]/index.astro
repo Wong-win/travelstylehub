@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  const categories = [...new Set(articles.map(article => article.data.category))];
+  return categories.map(cat => ({ params: { category: cat } }));
+}
+
+const categorySlug = Astro.params.category;
+
+const name = categorySlug.replace(/-/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
+
+const articles = await getCollection("articles", ({ data }) =>
+  data.category === categorySlug
+);
+
+articles.sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+
+<Layout>
+  <div class="category-page">
+    <div class="category-header">
+      <h1>{name}</h1>
+      <p>Stories, guides and inspiration from Travel Style Hub.</p>
+    </div>
+
+    {articles.length === 0 ? (
+      <p style="text-align:center;color:var(--color-text-muted);padding:4rem 0;">
+        Articles à venir. Cette catégorie est en cours de préparation.
+      </p>
+    ) : (
+      <div class="stories-grid">
+        {articles.map(article => (
+          <div class="story-card">
+            <a href={`/${article.data.year}/${article.data.month}/${article.data.day}/${article.slug}`} class="story-image-link">
+              <div class="story-image">
+                <img
+                  src={article.data.image || `https://picsum.photos/seed/${article.slug}/640/427`}
+                  alt={article.data.title}
+                  loading="lazy"
+                  width="640"
+                  height="427"
+                />
+              </div>
+            </a>
+            <div class="story-body">
+              <a href={`/${categorySlug}`} class="story-category">{name}</a>
+              <h3 class="story-title">
+                <a href={`/${article.data.year}/${article.data.month}/${article.data.day}/${article.slug}`}>{article.data.title}</a>
+              </h3>
+              <p class="story-excerpt">{article.data.excerpt || ""}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</Layout>

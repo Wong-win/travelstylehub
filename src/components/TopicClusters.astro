@@ -1,0 +1,19 @@
+---
+const clusters = [
+  { title: "Travel Beauty Essentials", desc: "What to pack, what to skip, and how to maintain your routine on the road.", href: "/tags/travel-beauty" },
+  { title: "Smart Home Picks", desc: "Curated tech that makes your space more efficient, comfortable, and secure.", href: "/tags/smart-home" },
+];
+---
+
+<section class="topic-clusters">
+  <p class="section-label">Topic Clusters</p>
+  <div class="clusters-grid">
+    {clusters.map(cluster => (
+      <div class="cluster-card">
+        <h3 class="cluster-title">{cluster.title}</h3>
+        <p class="cluster-desc">{cluster.desc}</p>
+        <a href={cluster.href} class="cluster-link">Explore</a>
+      </div>
+    ))}
+  </div>
+</section>
