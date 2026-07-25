@@ -1,14 +1,734 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import CategoryRows from "../components/CategoryRows.astro";
-import FeaturedStories from "../components/FeaturedStories.astro";
-import TrustSection from "../components/TrustSection.astro";
+import { getCollection } from "astro:content";
+
+const articles = (await getCollection("articles")).sort((a, b) => b.data.date.localeCompare(a.data.date));
+type Article = (typeof articles)[number];
+
+const byCategory = (category: string) => articles.filter((article) => article.data.category === category);
+const articleUrl = (article: Article) =>
+  `/${article.data.year}/${article.data.month}/${article.data.day}/${article.slug}`;
+const articleImage = (article: Article) =>
+  article.data.image || `https://picsum.photos/seed/${article.slug}/900/600`;
+const articleTitle = (article: Article) =>
+  article.data.title
+    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCodePoint(Number.parseInt(code, 16)))
+    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, "\"")
+    .replace(/&apos;/g, "'")
+    .replace(/&nbsp;/g, " ");
+const dateLabel = (article: Article) =>
+  new Date(article.data.date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
+const featured = articles.slice(0, 5);
+const recent = articles.slice(5, 10);
+const fashion = byCategory("fashion").slice(0, 5);
+const food = byCategory("food").slice(0, 5);
+const destinations = byCategory("destinations").slice(0, 5);
+const aviation = byCategory("aviation").slice(0, 4);
+const popular = [aviation[0], food[0], fashion[0], destinations[0]].filter(Boolean);
+const latest = articles.slice(10, 18);
 ---
 
 <Layout>
-  <Hero />
-  <CategoryRows />
-  <FeaturedStories />
-  <TrustSection />
+  <div class="home-page">
+    <section class="front-grid" aria-label="Featured stories">
+      <div class="front-main">
+        <div class="feature-grid">
+          {featured.slice(0, 2).map((article) => (
+            <a class="feature-card feature-card--wide" href={articleUrl(article)}>
+              <img src={articleImage(article)} alt="" />
+              <div class="feature-copy">
+                <h2>{articleTitle(article)}</h2>
+                <time datetime={article.data.date}>{dateLabel(article)}</time>
+              </div>
+            </a>
+          ))}
+          {featured.slice(2).map((article) => (
+            <a class="feature-card" href={articleUrl(article)}>
+              <img src={articleImage(article)} alt="" />
+              <div class="feature-copy">
+                <h2>{articleTitle(article)}</h2>
+                <time datetime={article.data.date}>{dateLabel(article)}</time>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div class="editorial-grid">
+          <aside class="left-rail">
+            <a class="destination-promo" href={articleUrl(destinations[0])}>
+              <img src={articleImage(destinations[0])} alt="" />
+              <span>Discover somewhere new</span>
+            </a>
+
+            <section class="panel">
+              <header class="section-heading"><h2>Destinations</h2></header>
+              <a class="rail-lead" href={articleUrl(destinations[1])}>
+                <img src={articleImage(destinations[1])} alt="" />
+                <h3>{articleTitle(destinations[1])}</h3>
+              </a>
+              {destinations.slice(2, 5).map((article) => (
+                <a class="rail-link" href={articleUrl(article)}>{articleTitle(article)}</a>
+              ))}
+            </section>
+          </aside>
+
+          <div class="center-column">
+            <section class="panel">
+              <header class="section-heading"><h2>Fashion</h2></header>
+              <div class="feature-list">
+                <a class="section-lead" href={articleUrl(fashion[0])}>
+                  <img src={articleImage(fashion[0])} alt="" />
+                  <h3>{articleTitle(fashion[0])}</h3>
+                  <time datetime={fashion[0].data.date}>{dateLabel(fashion[0])}</time>
+                </a>
+                <div class="section-links">
+                  {fashion.slice(1, 5).map((article) => (
+                    <a href={articleUrl(article)}>
+                      <h3>{articleTitle(article)}</h3>
+                      <time datetime={article.data.date}>{dateLabel(article)}</time>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <header class="section-heading">
+                <h2>Food</h2>
+                <a href="/food">View all</a>
+              </header>
+              <div class="food-layout">
+                <a class="food-lead" href={articleUrl(food[0])}>
+                  <img src={articleImage(food[0])} alt="" />
+                  <h3>{articleTitle(food[0])}</h3>
+                </a>
+                <div class="food-list">
+                  {food.slice(1, 5).map((article) => (
+                    <a href={articleUrl(article)}>
+                      <img src={articleImage(article)} alt="" />
+                      <h3>{articleTitle(article)}</h3>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <aside class="recent-panel panel">
+        <header class="section-heading"><h2>Recent Posts</h2></header>
+        <a class="recent-lead" href={articleUrl(recent[0])}>
+          <img src={articleImage(recent[0])} alt="" />
+          <h3>{articleTitle(recent[0])}</h3>
+          <time datetime={recent[0].data.date}>{dateLabel(recent[0])}</time>
+        </a>
+        {recent.slice(1).map((article) => (
+          <a class="recent-row" href={articleUrl(article)}>
+            <img src={articleImage(article)} alt="" />
+            <div>
+              <h3>{articleTitle(article)}</h3>
+              <time datetime={article.data.date}>{dateLabel(article)}</time>
+            </div>
+          </a>
+        ))}
+      </aside>
+    </section>
+
+    <section class="wide-section aviation-section">
+      <header class="section-heading section-heading--wide">
+        <h2>Aviation</h2>
+        <a href="/aviation">View all</a>
+      </header>
+      <div class="aviation-grid">
+        {aviation.map((article) => (
+          <a class="aviation-card" href={articleUrl(article)}>
+            <img src={articleImage(article)} alt="" />
+            <span>Aviation</span>
+            <h3>{articleTitle(article)}</h3>
+            <time datetime={article.data.date}>{dateLabel(article)}</time>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="lower-grid">
+      <aside class="popular-panel panel">
+        <header class="section-heading"><h2>Popular Posts</h2></header>
+        {popular.map((article, index) => (
+          <a class="popular-row" href={articleUrl(article)}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <h3>{articleTitle(article)}</h3>
+              <time datetime={article.data.date}>{dateLabel(article)}</time>
+            </div>
+          </a>
+        ))}
+      </aside>
+
+      <div class="latest-panel panel">
+        <header class="section-heading"><h2>Latest News</h2></header>
+        <div class="latest-list">
+          {latest.map((article) => (
+            <article class="latest-row">
+              <a href={articleUrl(article)}><img src={articleImage(article)} alt="" /></a>
+              <div>
+                <span>{article.data.category}</span>
+                <h3><a href={articleUrl(article)}>{articleTitle(article)}</a></h3>
+                <time datetime={article.data.date}>{dateLabel(article)}</time>
+                <p>{article.data.excerpt}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
+
+<style>
+  :global(body) {
+    background: #f1f1f1;
+    color: #111;
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .home-page {
+    padding: 20px 15px 64px;
+  }
+
+  .front-grid,
+  .wide-section,
+  .lower-grid {
+    width: min(1250px, 100%);
+    margin-inline: auto;
+  }
+
+  .front-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 945px) minmax(260px, 285px);
+    gap: 20px;
+    align-items: start;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-auto-rows: 208px;
+    gap: 4px;
+  }
+
+  .feature-card {
+    position: relative;
+    grid-column: span 2;
+    overflow: hidden;
+    background: #171717;
+    color: #fff;
+  }
+
+  .feature-card--wide {
+    grid-column: span 3;
+  }
+
+  .feature-card img,
+  .destination-promo img,
+  .section-lead img,
+  .food-lead img,
+  .recent-lead img,
+  .aviation-card img,
+  .latest-row img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .feature-card::after,
+  .section-lead::after {
+    content: "";
+    position: absolute;
+    inset: 35% 0 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.82));
+  }
+
+  .feature-card img {
+    transition: transform 0.45s ease;
+  }
+
+  .feature-card:hover img {
+    transform: scale(1.035);
+  }
+
+  .feature-copy {
+    position: absolute;
+    z-index: 1;
+    inset: auto 0 0;
+    padding: 18px 20px;
+  }
+
+  .feature-copy h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font: 700 19px/1.2 "Roboto", Arial, sans-serif;
+  }
+
+  .feature-card--wide .feature-copy h2 {
+    font-size: 22px;
+  }
+
+  time {
+    color: #8b8b8b;
+    font-size: 11px;
+  }
+
+  .feature-copy time {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 12px;
+  }
+
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 285px minmax(0, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .panel {
+    background: #fff;
+    padding: 20px;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .section-heading::after {
+    content: "";
+    height: 4px;
+    flex: 1;
+    background: #ececec;
+  }
+
+  .section-heading h2 {
+    flex: none;
+    margin: 0;
+    color: #111;
+    font: 600 23px/1 "Oswald", "Arial Narrow", Arial, sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .section-heading > a {
+    order: 2;
+    flex: none;
+    color: #777;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .section-heading:has(> a)::after {
+    order: 1;
+  }
+
+  .destination-promo {
+    position: relative;
+    display: block;
+    height: 190px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .destination-promo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  }
+
+  .destination-promo span {
+    position: absolute;
+    z-index: 1;
+    left: 16px;
+    bottom: 15px;
+    font: 700 19px/1.1 "Roboto", Arial, sans-serif;
+  }
+
+  .rail-lead {
+    display: grid;
+    grid-template-columns: 94px 1fr;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  .rail-lead img {
+    width: 94px;
+    height: 72px;
+    object-fit: cover;
+  }
+
+  .rail-lead h3,
+  .rail-link,
+  .recent-row h3,
+  .popular-row h3 {
+    font: 700 14px/1.28 "Roboto", Arial, sans-serif;
+  }
+
+  .rail-lead h3 {
+    margin: 0;
+  }
+
+  .rail-link {
+    display: block;
+    padding: 14px 0;
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  .center-column {
+    display: grid;
+    gap: 20px;
+  }
+
+  .feature-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(180px, 0.85fr);
+    gap: 20px;
+  }
+
+  .section-lead {
+    position: relative;
+    display: block;
+    min-height: 332px;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .section-lead h3 {
+    position: absolute;
+    z-index: 1;
+    right: 18px;
+    bottom: 42px;
+    left: 18px;
+    margin: 0;
+    color: #fff;
+    font: 700 23px/1.18 "Roboto", Arial, sans-serif;
+  }
+
+  .section-lead time {
+    position: absolute;
+    z-index: 1;
+    bottom: 18px;
+    left: 18px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .section-links a {
+    display: block;
+    padding: 0 0 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e7e7e7;
+  }
+
+  .section-links h3 {
+    margin: 0 0 7px;
+    font: 700 15px/1.25 "Roboto", Arial, sans-serif;
+  }
+
+  .food-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 20px;
+  }
+
+  .food-lead {
+    display: block;
+  }
+
+  .food-lead img {
+    height: 190px;
+  }
+
+  .food-lead h3 {
+    margin: 12px 0 0;
+    font: 700 20px/1.25 "Roboto", Arial, sans-serif;
+  }
+
+  .food-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .food-list a {
+    display: grid;
+    grid-template-columns: 68px 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .food-list img {
+    width: 68px;
+    height: 58px;
+    object-fit: cover;
+  }
+
+  .food-list h3 {
+    margin: 0;
+    font: 700 13px/1.25 "Roboto", Arial, sans-serif;
+  }
+
+  .recent-panel {
+    align-self: stretch;
+  }
+
+  .recent-lead {
+    display: block;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .recent-lead img {
+    height: 215px;
+    margin-bottom: 14px;
+  }
+
+  .recent-lead h3 {
+    margin: 0 0 8px;
+    font: 700 22px/1.2 "Roboto", Arial, sans-serif;
+  }
+
+  .recent-row {
+    display: grid;
+    grid-template-columns: 82px 1fr;
+    gap: 13px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .recent-row img {
+    width: 82px;
+    height: 68px;
+    object-fit: cover;
+  }
+
+  .recent-row h3 {
+    margin: 0 0 7px;
+  }
+
+  .wide-section {
+    margin-top: 20px;
+    padding: 22px 20px 26px;
+    background: #fff;
+  }
+
+  .section-heading--wide {
+    margin-bottom: 20px;
+  }
+
+  .aviation-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .aviation-card img {
+    height: 185px;
+    margin-bottom: 12px;
+  }
+
+  .aviation-card > span,
+  .latest-row > div > span {
+    color: #00a651;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .aviation-card h3 {
+    margin: 5px 0 9px;
+    font: 700 18px/1.25 "Roboto", Arial, sans-serif;
+  }
+
+  .lower-grid {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    align-items: start;
+  }
+
+  .popular-row {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 10px;
+    padding: 17px 0;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .popular-row > span {
+    color: #00a651;
+    font: 600 26px/1 "Oswald", Arial, sans-serif;
+  }
+
+  .popular-row h3 {
+    margin: 0 0 7px;
+  }
+
+  .latest-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 22px;
+  }
+
+  .latest-row {
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    gap: 16px;
+    padding: 0 0 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .latest-row img {
+    height: 108px;
+  }
+
+  .latest-row h3 {
+    margin: 4px 0 7px;
+    font: 700 17px/1.23 "Roboto", Arial, sans-serif;
+  }
+
+  .latest-row p {
+    display: none;
+  }
+
+  @media (max-width: 1050px) {
+    .front-grid {
+      grid-template-columns: minmax(0, 1fr) 270px;
+    }
+
+    .editorial-grid {
+      grid-template-columns: 240px minmax(0, 1fr);
+    }
+
+    .feature-list {
+      grid-template-columns: 1fr;
+    }
+
+    .section-lead {
+      min-height: 360px;
+    }
+
+    .latest-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .home-page {
+      padding-inline: 12px;
+    }
+
+    .front-grid,
+    .lower-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .recent-panel {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 20px;
+    }
+
+    .recent-panel .section-heading,
+    .recent-lead {
+      grid-column: 1 / -1;
+    }
+
+    .aviation-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .home-page {
+      padding-top: 12px;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 230px;
+    }
+
+    .feature-card,
+    .feature-card--wide {
+      grid-column: 1;
+    }
+
+    .feature-card--wide .feature-copy h2,
+    .feature-copy h2 {
+      font-size: 19px;
+    }
+
+    .editorial-grid,
+    .food-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .left-rail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .destination-promo {
+      height: auto;
+      min-height: 260px;
+      margin: 0;
+    }
+
+    .recent-panel {
+      display: block;
+    }
+
+    .aviation-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .aviation-card img {
+      height: 230px;
+    }
+
+    .latest-row {
+      grid-template-columns: 112px 1fr;
+    }
+
+    .latest-row img {
+      height: 92px;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .left-rail,
+    .food-list {
+      grid-template-columns: 1fr;
+    }
+
+    .destination-promo {
+      min-height: 220px;
+    }
+  }
+</style>

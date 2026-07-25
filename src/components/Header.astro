@@ -1,21 +1,23 @@
 ---
 const navItems = [
-  { label: "Aviation", href: "/aviation" },
+  { label: "Home", href: "/" },
   { label: "Destinations", href: "/destinations" },
-  { label: "Fashion", href: "/fashion" },
+  { label: "Aviation", href: "/aviation" },
   { label: "Food", href: "/food" },
+  { label: "Fashion", href: "/fashion" },
+  { label: "Contact", href: "/contact" },
 ];
 const currentPath = Astro.url.pathname;
 ---
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="site-logo">Travel<span>Style Hub</span></a>
+    <a href="/" class="site-logo"><img src="/travelstyle-logo.png" alt="Travel Style Hub" /></a>
     <nav class="main-nav">
       {navItems.map(item => (
         <a
           href={item.href}
-          class={currentPath.startsWith(item.href) ? "active" : ""}
+          class={(item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href)) ? "active" : ""}
         >
           {item.label}
         </a>

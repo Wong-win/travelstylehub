@@ -1,4 +1,5 @@
 node_modules
+.astro
 .gh
 dist
 .DS_Store
