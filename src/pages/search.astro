@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <div class="search-page">
+    <div class="search-header">
+      <h1>Search</h1>
+      <p>Find stories, guides and inspiration across Travel Style Hub.</p>
+      <form class="search-form" id="search-form" action="/search" method="get" role="search">
+        <input
+          type="search"
+          id="search-input"
+          name="q"
+          placeholder="Type a keyword…"
+          autocomplete="off"
+          autofocus
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <p id="search-status" class="search-status"></p>
+    <div id="search-results" class="stories-grid"></div>
+    <p id="search-empty" class="search-empty" hidden>No results found. Try another keyword.</p>
+  </div>
+</Layout>
+
+<script>
+  const input = document.getElementById("search-input");
+  const form = document.getElementById("search-form");
+  const results = document.getElementById("search-results");
+  const empty = document.getElementById("search-empty");
+  const status = document.getElementById("search-status");
+
+  const params = new URLSearchParams(window.location.search);
+  const initialQ = (params.get("q") || "").trim();
+  input.value = initialQ;
+
+  let index = [];
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  const categoryName = (slug) =>
+    slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+  function normalize(s) {
+    return String(s)
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[̀-ͯ]/g, "");
+  }
+
+  function search(q) {
+    const term = normalize(q);
+    if (!term) return index.slice(0, 12);
+    const words = term.split(/\s+/).filter(Boolean);
+    return index
+      .filter((a) => {
+        const hay = normalize([a.title, a.excerpt, a.category].join(" "));
+        return words.every((w) => hay.includes(w));
+      })
+      .slice(0, 40);
+  }
+
+  function render(list) {
+    if (!list.length) {
+      results.innerHTML = "";
+      empty.hidden = false;
+      status.textContent = "";
+      return;
+    }
+    empty.hidden = true;
+    status.textContent = `${list.length} result${list.length > 1 ? "s" : ""}`;
+    results.innerHTML = list
+      .map(
+        (a) => `
+        <div class="story-card">
+          <a href="${a.url}" class="story-image-link">
+            <div class="story-image"><img src="${escapeHtml(a.image)}" alt="${escapeHtml(a.title)}" loading="lazy" /></div>
+          </a>
+          <div class="story-body">
+            <a href="/${a.category}" class="story-category">${categoryName(a.category)}</a>
+            <h3 class="story-title"><a href="${a.url}">${escapeHtml(a.title)}</a></h3>
+            <p class="story-excerpt">${escapeHtml(a.excerpt)}</p>
+          </div>
+        </div>`
+      )
+      .join("");
+  }
+
+  fetch("/search-index.json")
+    .then((r) => r.json())
+    .then((data) => {
+      index = data;
+      render(search(initialQ));
+    })
+    .catch(() => {
+      status.textContent = "Search index could not be loaded.";
+    });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    render(search(input.value));
+  });
+
+  input.addEventListener("input", () => {
+    render(search(input.value));
+  });
+</script>

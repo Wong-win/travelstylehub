@@ -5,7 +5,6 @@ const navItems = [
   { label: "Aviation", href: "/aviation" },
   { label: "Food", href: "/food" },
   { label: "Fashion", href: "/fashion" },
-  { label: "Contact", href: "/contact" },
 ];
 const currentPath = Astro.url.pathname;
 ---
@@ -13,15 +12,26 @@ const currentPath = Astro.url.pathname;
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo"><img src="/travelstyle-logo.png" alt="Travel Style Hub" /></a>
-    <nav class="main-nav">
-      {navItems.map(item => (
-        <a
-          href={item.href}
-          class={(item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href)) ? "active" : ""}
-        >
-          {item.label}
-        </a>
-      ))}
-    </nav>
+    <div class="header-right">
+      <nav class="main-nav">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class={(item.href === "/" ? currentPath === "/" : currentPath.startsWith(item.href)) ? "active" : ""}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+      <form class="header-search" action="/search" method="get" role="search">
+        <input type="search" name="q" placeholder="Search…" aria-label="Search articles" autocomplete="off" />
+        <button type="submit" aria-label="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+    </div>
   </div>
 </header>
