@@ -125,7 +125,7 @@ day: "29"
 
 <p class="my-2 [&amp;+p]:mt-4 [&amp;_strong:has(+br)]:inline-block [&amp;_strong:has(+br)]:pb-2">Ready to bring a piece of Europe into your home?</p>
 
-<p class="my-2 [&amp;+p]:mt-4 [&amp;_strong:has(+br)]:inline-block [&amp;_strong:has(+br)]:pb-2"><strong><a class="reset interactable cursor-pointer decoration-1 underline-offset-1 text-super hover:underline font-semibold" href="https://dgr.cosyneo.com/?P513BE3582D1D1511" target="_blank" rel="nofollow sponsored noopener">Discover the full Cosyneo collection and explore current offers →</a></strong></p>
+<p class="my-2 [&amp;+p]:mt-4 [&amp;_strong:has(+br)]:inline-block [&amp;_strong:has(+br)]:pb-2"><strong><a class="reset interactable cursor-pointer decoration-1 underline-offset-1 text-super hover:underline font-semibold" href="https://dgr.cosyneo.com/?P513BE3582D1D1F15" target="_blank" rel="nofollow sponsored noopener">Discover the full Cosyneo collection and explore current offers →</a></strong></p>
 
 <hr />
 
