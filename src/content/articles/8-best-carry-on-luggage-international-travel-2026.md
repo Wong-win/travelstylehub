@@ -1,12 +1,12 @@
 ---
 title: "8 Best Carry-On Luggage Pieces for International Travel in 2026"
 date: "2026-09-03"
-postSlug: "8-best-carry-on-luggage-international-travel-2026"
 image: "/images/8-best-carry-on-luggage-international-travel-2026.jpg"
-categories: ["Travel", "Gear"]
-categorySlugs: ["travel", "gear"]
 excerpt: "Find your perfect travel companion with our 2026 guide to the 8 best carry-on luggage pieces. Detailed reviews, size comparisons, durability tests, and tips for choosing the right bag for your travel style."
-urlPath: "/8-best-carry-on-luggage-international-travel-2026/"
+category: "travel"
+year: "2026"
+month: "09"
+day: "03"
 ---
 
 <p>Choosing the right carry-on luggage can make or break your travel experience. The wrong bag is too heavy, doesn't fit in overhead bins, or falls apart after a few trips. The right bag becomes a trusted companion that protects your belongings, navigates easily through airports, and lasts for years. After extensive testing across dozens of flights, multiple airlines, and various travel scenarios, we've identified the 8 best carry-on luggage pieces available in 2026.</p>
