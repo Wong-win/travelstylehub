@@ -1,5 +1,2 @@
-import { defineConfig } from "astro/config";
-
-export default defineConfig({
-  site: "https://travelstylehub.com",
-});
+import { defineConfig } from "astro/config"; import sitemap from "@astrojs/sitemap";
+export default defineConfig({ site: "https://www.travelstylehub.com", integrations: [sitemap()], trailingSlash: "always" });

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://travelstylehub.com/sitemap.xml
+Sitemap: https://www.travelstylehub.com/sitemap.xml
