@@ -1,6 +1,7 @@
 ---
 title: "Parisian Packing: How Caroll Defines Effortless French Travel Style"
 date: "2026-05-15T09:00:00"
+pinned: true
 category: "fashion"
 excerpt: "There is a particular kind of confidence that comes from dressing well while traveling. It is not about vanity or impressing strangers — it is about feeling like yourself, put-together and at ease, in an environment where everything else is unfamiliar. No one understands this better than the French, whose&#8230;"
 image: "/wp-content/uploads/2026/07/caroll-parisian-style-cover.jpg"

@@ -1,6 +1,7 @@
 ---
 title: "Cosyneo: How a French Brand Brings Spanish & Portuguese Artisan Craftsmanship to Your Bathroom"
 date: "2026-07-29T10:00:00"
+pinned: true
 category: "destinations"
 keywords: "Cosyneo, European bathroom design, Spanish craftsmanship, Portuguese faucets, bathroom renovation, European manufacturing, direct-to-consumer furniture"
 excerpt: "Travel through Europe's finest design regions without leaving home. Cosyneo sources handcrafted bathroom furniture from Spain and Portugal, delivering continental elegance at factory-direct prices. Discover how this French brand is changing the way we think about bathroom design."

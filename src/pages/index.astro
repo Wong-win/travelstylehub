@@ -3,7 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import { decodeEntities } from "../utils/decode-entities";
 
-const articles = (await getCollection("articles")).sort((a, b) => b.data.date.localeCompare(a.data.date));
+const articles = (await getCollection("articles")).sort((a, b) => {
+  const ap = a.data.pinned ? 1 : 0; const bp = b.data.pinned ? 1 : 0;
+  if (ap !== bp) return bp - ap;
+  return b.data.date.localeCompare(a.data.date);
+});
 type Article = (typeof articles)[number];
 
 const byCategory = (category: string) => articles.filter((article) => article.data.category === category);

@@ -11,6 +11,7 @@ const articles = defineCollection({
     year: z.string(),
     month: z.string(),
     day: z.string(),
+    pinned: z.boolean().optional(),
   }),
 });
 

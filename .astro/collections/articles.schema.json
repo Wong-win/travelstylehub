@@ -31,6 +31,9 @@
         "day": {
           "type": "string"
         },
+        "pinned": {
+          "type": "boolean"
+        },
         "$schema": {
           "type": "string"
         }
