@@ -20,7 +20,7 @@ const articles = await getCollection("articles", ({ data }) =>
 articles.sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
-<Layout>
+<Layout title={name} description={`${name} stories, guides and inspiration from Travel Style Hub.`}>
   <div class="category-page">
     <div class="category-header">
       <h1>{name}</h1>

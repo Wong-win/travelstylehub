@@ -16,7 +16,7 @@ const { Content } = await article.render();
 const name = article.data.category.replace(/-/g, " ").replace(/\b\w/g, (letter: string) => letter.toUpperCase());
 ---
 
-<Layout>
+<Layout title={decodeEntities(article.data.title)} description={decodeEntities(article.data.excerpt || `${article.data.title} - read on Travel Style Hub.`)}>
   <article class="article-page">
     <p class="article-category"><a href={`/${article.data.category}`}>{name}</a></p>
     <h1>{decodeEntities(article.data.title)}</h1>
