@@ -2,6 +2,9 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import CookieConsent from "../components/CookieConsent.astro";
+import { siteInfo } from "../data/site-info";
+import { consentScript } from "../lib/consent";
 
 export interface Props {
   title?: string;
@@ -16,6 +19,8 @@ const siteTitle = title
 const siteDescription =
   description ||
   "Travel inspiration, destinations, aviation, fashion and food.";
+const consentMaxAge = String(siteInfo.consent.maxAgeDays * 24 * 3600 * 1000);
+
 ---
 
 <!doctype html>
@@ -33,14 +38,16 @@ const siteDescription =
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
       
     
-      <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-JVGNBDNGV8"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JVGNBDNGV8');
-    </script>
+
+    <!--
+      Audience measurement and advertising are only loaded after explicit
+      consent. Nothing is tracked before the visitor has chosen.
+    -->
+    <meta name="tsh-ga-id" content={siteInfo.analytics.id} />
+    <meta name="tsh-consent-key" content={siteInfo.consent.storageKey} />
+    <meta name="tsh-consent-max-age" content={consentMaxAge} />
+    <script is:inline set:html={consentScript} />
+
   </head>
   <body>
     <Header />
@@ -48,5 +55,5 @@ const siteDescription =
       <slot />
     </main>
     <Footer />
-  </body>
+  <CookieConsent /></body>
 </html>

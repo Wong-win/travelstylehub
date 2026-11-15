@@ -88,7 +88,7 @@ day: "28"
 
 <p>Ready to see what is currently on offer?</p>
 
-<p><strong><a class="reset interactable cursor-pointer decoration-1 underline-offset-1 text-super hover:underline font-semibold" href="https://action.metaffiliation.com/trk.php?mclic=P513277582D1D1F1&amp;redir=https%3A%2F%2Fwww.voyage-prive.com%2Fthematique%2Fventes" target="_blank" rel="nofollow sponsored noopener">Browse the current Voyage Privé private sales and last-minute departures →</a></strong></p>
+<p><strong><a class="reset interactable cursor-pointer decoration-1 underline-offset-1 text-super hover:underline font-semibold tsh-cta" href="https://action.metaffiliation.com/trk.php?mclic=P513277582D1D1F1&amp;redir=https%3A%2F%2Fwww.voyage-prive.com%2Fthematique%2Fventes" target="_blank" rel="nofollow sponsored noopener">Browse the current Voyage Privé private sales and last-minute departures →</a></strong></p>
 
 <hr />
 

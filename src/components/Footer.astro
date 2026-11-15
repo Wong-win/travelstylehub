@@ -7,7 +7,12 @@
       <a href="/contact">Contact</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Travel Style Hub. All rights reserved.</p>
-  </div>
+  
+    <div class="footer-legal">
+      <p class="footer-publisher">Published by Rosie Gardiner — 271 Woodcock Hill, Harrow HA3 0PG, United Kingdom — <a href="mailto:contact@travelstylehub.com">contact@travelstylehub.com</a> — +44 7012 474297</p>
+      <button type="button" class="footer-privacy-choices" data-privacy-choices>Privacy choices</button>
+    </div>
+</div>
 </footer>
 
 <style>
@@ -15,3 +20,12 @@
     color: var(--color-accent);
   }
 </style>
+
+<script>
+  document.querySelectorAll("[data-privacy-choices]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const api = (window as unknown as Record<string, any>).TSH_CONSENT;
+      if (api && api.openPreferences) api.openPreferences();
+    });
+  });
+</script>

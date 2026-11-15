@@ -562,3 +562,117 @@ h1, h2, h3, h4 {
   .article-page h1 { font-size: 2rem; }
   .category-header h1 { font-size: 2rem; }
 }
+
+/* Affiliate notice, displayed above the body of every article that carries
+   an affiliate link (FTC Endorsement Guides: the disclosure must be clear
+   and conspicuous, not buried at the end of the page). */
+.affiliate-disclosure {
+  margin: 0 0 1.25rem;
+  padding: 0.7rem 0.95rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-light, rgba(0, 0, 0, 0.03));
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-secondary, inherit);
+}
+
+/* === Affiliate CTA ===
+   The `tsh-cta` class is set on the affiliate links that are alone in their
+   paragraph. In CSS, `:only-child` does not take text nodes into account,
+   so a link inside a sentence would also be turned into a button. Only the
+   explicitly marked CTAs are styled. */
+.article-body p > a.tsh-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  background: var(--color-accent);
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  text-decoration: none !important;
+  transition: background 0.2s, transform 0.2s;
+  margin: 0.35rem 0;
+}
+
+.article-body p > a.tsh-cta:hover {
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* An affiliate link inside a sentence stays plain text. */
+.article-body a[rel="nofollow sponsored"]:not(.tsh-cta) {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-privacy-choices {
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.7rem;
+  font: inherit;
+  font-size: 0.78rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.footer-privacy-choices:hover {
+  opacity: 0.75;
+}
+
+/* === Contact form === */
+.contact-form {
+  max-width: 520px;
+  margin: 1.5rem 0 2rem;
+}
+
+.contact-form p {
+  margin: 0 0 1rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+  font-size: 0.9rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.45);
+  border-radius: 4px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-submit {
+  padding: 0.65rem 1.3rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-accent);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-submit:hover {
+  filter: brightness(0.94);
+}
+
+.contact-mail {
+  font-weight: 600;
+}

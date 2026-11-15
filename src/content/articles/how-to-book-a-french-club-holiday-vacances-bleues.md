@@ -118,7 +118,7 @@ day: "28"
 
 <p>Ready to look at the properties and the current offers?</p>
 
-<p><strong><a class="reset interactable cursor-pointer decoration-1 underline-offset-1 text-super hover:underline font-semibold" href="https://odx.vacancesbleues.fr/?P513A7F582D1D1D3" target="_blank" rel="nofollow sponsored noopener">Browse Vacances Bleues clubs, hotels and residences for your dates &rarr;</a></strong></p>
+<p><strong><a class="reset interactable cursor-pointer decoration-1 underline-offset-1 text-super hover:underline font-semibold tsh-cta" href="https://odx.vacancesbleues.fr/?P513A7F582D1D1D3" target="_blank" rel="nofollow sponsored noopener">Browse Vacances Bleues clubs, hotels and residences for your dates &rarr;</a></strong></p>
 
 <hr />
 

@@ -119,7 +119,7 @@ day: "09"
 
 <p>If you have a French address and the timing works, the current offers are live now:</p>
 
-<p><strong><a class="reset interactable cursor-pointer decoration-1 underline-offset-1 text-super hover:underline font-semibold" href="https://action.metaffiliation.com/trk.php?mclic=P512D11582D1D135" target="_blank" rel="nofollow sponsored noopener">Browse Sarenza's Black Friday selection →</a></strong></p>
+<p><strong><a class="reset interactable cursor-pointer decoration-1 underline-offset-1 text-super hover:underline font-semibold tsh-cta" href="https://action.metaffiliation.com/trk.php?mclic=P512D11582D1D135" target="_blank" rel="nofollow sponsored noopener">Browse Sarenza's Black Friday selection →</a></strong></p>
 
 <hr />
 

@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const { Content } = await article.render();
+const hasAffiliate = /action\.metaffiliation\.com|cgl\.spartoo\.com|iar\.habitatetjardin\.com|wam\.recommerce\.com/.test(article.body || "");
 const name = article.data.category.replace(/-/g, " ").replace(/\b\w/g, (letter: string) => letter.toUpperCase());
 ---
 
@@ -21,6 +22,13 @@ const name = article.data.category.replace(/-/g, " ").replace(/\b\w/g, (letter: 
     <p class="article-category"><a href={`/${article.data.category}`}>{name}</a></p>
     <h1>{decodeEntities(article.data.title)}</h1>
     <p class="article-meta">Published {new Date(article.data.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+
+    {hasAffiliate && (
+      <p class="affiliate-disclosure">
+        This article contains affiliate links. If you buy through one of them, we may
+        earn a commission from the merchant, at no extra cost to you.
+      </p>
+    )}
     <div class="article-body"><Content /></div>
   </article>
 </Layout>

@@ -1,0 +1,257 @@
+---
+import { siteInfo } from "../data/site-info";
+
+const adNames = siteInfo.adNetworks.map((n) => n.name).join(", ");
+const prefix = "tsh";
+---
+
+<div id="tsh-cc" class="tsh-cc" hidden>
+  <div class="tsh-cc__box" role="dialog" aria-modal="false" aria-label="Cookie preferences">
+    <p class="tsh-cc__text">
+      <strong>This site uses cookies.</strong>
+      Cookies required for the site to work are always on. With your consent,
+      {siteInfo.analytics.provider} measures the audience of the site, and our
+      affiliate partners ({adNames}) may serve advertising. You can accept,
+      refuse or customise at any time.
+      <a href="/privacy-policy/">Privacy Policy</a>
+    </p>
+    <div class="tsh-cc__actions">
+      <button type="button" class="tsh-cc__btn" data-action="refuse">Refuse</button>
+      <button type="button" class="tsh-cc__btn" data-action="accept">Accept</button>
+      <button type="button" class="tsh-cc__link" data-action="customise">Customise</button>
+    </div>
+  </div>
+
+  <div class="tsh-cc__panel" id="tsh-cc-panel" hidden>
+    <h2 class="tsh-cc__title">Cookie preferences</h2>
+    <ul class="tsh-cc__list">
+      <li class="tsh-cc__item">
+        <label class="tsh-cc__label">
+          <input type="checkbox" checked disabled />
+          <span>Strictly necessary cookies</span>
+        </label>
+        <p class="tsh-cc__desc">
+          Required for the site to work (they remember your cookie choice).
+          They are never disabled.
+        </p>
+      </li>
+      <li class="tsh-cc__item">
+        <label class="tsh-cc__label">
+          <input type="checkbox" data-cat="analytics" />
+          <span>Audience measurement</span>
+        </label>
+        <p class="tsh-cc__desc">
+          {siteInfo.analytics.provider} lets us measure audience and improve
+          our content. No data resale, no advertising use.
+        </p>
+      </li>
+      <li class="tsh-cc__item">
+        <label class="tsh-cc__label">
+          <input type="checkbox" data-cat="advertising" />
+          <span>Advertising and affiliate partners</span>
+        </label>
+        <p class="tsh-cc__desc">
+          Allows advertising banners to load and lets the affiliate programmes
+          ({adNames}) track clicks. Without your consent, no advertising
+          tracker is placed.
+        </p>
+      </li>
+    </ul>
+    <div class="tsh-cc__actions">
+      <button type="button" class="tsh-cc__btn" data-action="refuse">Refuse all</button>
+      <button type="button" class="tsh-cc__btn" data-action="save">Save my choices</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .tsh-cc {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    font-family: inherit;
+  }
+  .tsh-cc[hidden] {
+    display: none;
+  }
+  .tsh-cc__box,
+  .tsh-cc__panel {
+    background: #141414;
+    color: #ecebe7;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .tsh-cc__box {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.1rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+  .tsh-cc__text {
+    flex: 1 1 460px;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    margin: 0;
+    color: #b6b3ae;
+  }
+  .tsh-cc__text strong {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.88rem;
+    color: #fff;
+  }
+  .tsh-cc__text a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .tsh-cc__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  /* Refuse and Accept: same size, same weight, same number of clicks. */
+  .tsh-cc__btn {
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 3px;
+    padding: 0.6rem 1.15rem;
+    cursor: pointer;
+    min-width: 110px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .tsh-cc__btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+  .tsh-cc__link {
+    font-family: inherit;
+    font-size: 0.8rem;
+    color: #b6b3ae;
+    background: none;
+    border: 0;
+    padding: 0.4rem 0.2rem;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .tsh-cc__link:hover {
+    color: #fff;
+  }
+  .tsh-cc__panel {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 1.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .tsh-cc__panel[hidden] {
+    display: none;
+  }
+  .tsh-cc__title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.9rem;
+  }
+  .tsh-cc__list {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: grid;
+    gap: 0.85rem;
+  }
+  .tsh-cc__label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+  }
+  .tsh-cc__label input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  .tsh-cc__label input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .tsh-cc__desc {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #9b9892;
+    margin: 0.25rem 0 0 1.65rem;
+  }
+  @media (max-width: 640px) {
+    .tsh-cc__box {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .tsh-cc__actions {
+      justify-content: stretch;
+    }
+    .tsh-cc__btn {
+      flex: 1;
+    }
+  }
+</style>
+
+<script>
+  const root = document.getElementById("tsh-cc");
+  const panel = document.getElementById("tsh-cc-panel");
+  const api = (window as unknown as Record<string, any>)["TSH_CONSENT"];
+  if (root && panel && api) {
+    const analyticsBox = panel.querySelector<HTMLInputElement>('[data-cat="analytics"]');
+    const adsBox = panel.querySelector<HTMLInputElement>('[data-cat="advertising"]');
+
+    const show = () => {
+      root.hidden = false;
+      panel.hidden = true;
+    };
+    const hide = () => {
+      root.hidden = true;
+      panel.hidden = true;
+    };
+
+    const write = (analytics: boolean, advertising: boolean) => {
+      api.set({ necessary: true, analytics, advertising, ts: Date.now() });
+      // Un refus doit effacer les traceurs déjà déposés.
+      if (!analytics || !advertising) api.purge();
+      hide();
+    };
+
+    const openPreferences = () => {
+      const c = api.get();
+      if (analyticsBox) analyticsBox.checked = !!(c && c.analytics);
+      if (adsBox) adsBox.checked = !!(c && c.advertising);
+      root.hidden = false;
+      panel.hidden = false;
+    };
+
+    root.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement;
+      const action = target.getAttribute("data-action");
+      if (!action) return;
+      if (action === "accept") write(true, true);
+      else if (action === "refuse") write(false, false);
+      else if (action === "customise") openPreferences();
+      else if (action === "save")
+        write(!!(analyticsBox && analyticsBox.checked), !!(adsBox && adsBox.checked));
+    });
+
+    // Exposed for the footer ("Privacy choices").
+    api.openPreferences = openPreferences;
+
+    if (!api.get()) show();
+  }
+</script>
