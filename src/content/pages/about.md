@@ -1,6 +1,6 @@
 ---
 title: "About"
-description: "Travel Style Hub is an independent travel journal covering destinations, aviation, gastronomy and fashion, published by Rosie Gardiner."
+description: "Travel Style Hub is an independent travel journal covering destinations, aviation, gastronomy and fashion, published by Patrick D Culver."
 ---
 
 <p>Welcome to Travelstylehub, your ultimate guide for travel destinations, airlines, gastronomy and fashion. Whether you&#8217;re planning your next getaway or looking to discover the best culinary and fashion trends from around the world, our site offers you tips, reviews and inspiration to travel with style and sophistication. Explore our detailed articles and set off on an adventure with Travelstylehub !</p>
@@ -9,11 +9,11 @@ description: "Travel Style Hub is an independent travel journal covering destina
 
 <p>
   Travel Style Hub is an independent editorial website published by
-  <strong>Rosie Gardiner</strong>, Editor and publisher.<br />
-  271 Woodcock Hill<br />
-  Harrow HA3 0PG<br />
-  United Kingdom<br />
-  <a href="mailto:contact@travelstylehub.com">contact@travelstylehub.com</a> &middot; +44 7012 474297
+  <strong>Patrick D Culver</strong>, Editor and publisher.<br />
+  3095 Dundas St W<br />
+  Toronto, ON M6P 1Z9<br />
+  Canada<br />
+  <a href="mailto:contact@travelstylehub.com">contact@travelstylehub.com</a> &middot; +1 416-549-7510
 </p>
 
 <h2>Affiliate Disclosure</h2>

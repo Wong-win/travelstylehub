@@ -14,16 +14,16 @@ export const siteInfo = {
   origin: "https://www.travelstylehub.com",
 
   publisher: {
-    name: "Rosie Gardiner",
+    name: "Patrick D Culver",
     role: "Editor and publisher",
     address: {
-      line1: "271 Woodcock Hill",
-      city: "Harrow",
-      region: "",
-      postalCode: "HA3 0PG",
-      country: "United Kingdom",
+      line1: "3095 Dundas St W",
+      city: "Toronto",
+      region: "ON",
+      postalCode: "M6P 1Z9",
+      country: "Canada",
     },
-    phone: "+44 7012 474297",
+    phone: "+1 416-549-7510",
     email: "contact@travelstylehub.com",
   },
 

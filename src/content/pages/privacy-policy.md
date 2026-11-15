@@ -9,12 +9,12 @@ description: "How Travel Style Hub handles your data, which cookies and trackers
 
 ## 1. Who we are
 
-Travel Style Hub is an independent editorial website published by **Rosie Gardiner**, Editor and publisher.
-Our address is 271 Woodcock Hill, Harrow HA3 0PG, United Kingdom. You can reach us at [contact@travelstylehub.com](mailto:contact@travelstylehub.com) or on +44 7012 474297.
+Travel Style Hub is an independent editorial website published by **Patrick D Culver**, Editor and publisher.
+Our address is 3095 Dundas St W, Toronto, ON M6P 1Z9, Canada. You can reach us at [contact@travelstylehub.com](mailto:contact@travelstylehub.com) or on +1 416-549-7510.
 
 This policy explains what personal information this website collects, why,
 how long we keep it and what you can do about it. It is written to comply
-with the UK General Data Protection Regulation and the Data Protection Act 2018.
+with the Personal Information Protection and Electronic Documents Act (PIPEDA) and the privacy legislation of your province or territory.
 
 ## 2. What we collect
 
@@ -114,37 +114,42 @@ access to them and no responsibility for them.
 
 ## 10. Your rights
 
-## 10. Your rights
+## 10. Your rights and choices
 
-  Under the UK General Data Protection Regulation and the Data Protection
-  Act 2018, you have the right to:
+  Under the Personal Information Protection and Electronic Documents Act
+  (PIPEDA), which applies to our commercial activity, you have the right to
+  ask us to tell you what personal information we hold about you, to ask us
+  to correct it, and to withdraw your consent to its collection and use.
 
-  - be told what personal information we hold about you and how we use it;
-  - have inaccurate information corrected;
-  - have your information erased where we no longer need it;
-  - restrict or object to how we use it;
-  - receive it in a portable, machine-readable format;
-  - withdraw your consent at any time, without affecting the lawfulness of our use of it before that point.
+  Consent is required for the collection, use and disclosure of personal
+  information that is not necessary to provide a service you have requested.
+  We rely on your consent for audience measurement and for advertising
+  cookies, and you can withdraw it at any time through the "Privacy
+  choices" link at the bottom of every page. Withdrawing consent does not
+  affect the lawfulness of our use of the information before that point.
 
-  We respond within one month. We do not charge unless a request is
-  manifestly unfounded or excessive. If you are unhappy with our response,
-  you can complain to the Information Commissioner's Office at ico.org.uk.
+  You may also request access to and correction of your personal information
+  under the privacy legislation of your province or territory of residence.
+  If you live in Quebec, the Act respecting the protection of personal
+  information in the private sector (Law 25) also gives you the right to
+  withdraw consent, to request portability and to be informed of any
+  automated decision. We respond to a verified request within 30 days, or
+  within the period set by the law that applies to you.
 
-  Our legal basis is consent for audience measurement, for advertising
-  cookies and for affiliate click tracking, all of them optional and all of
-  them withdrawable; legitimate interests for keeping the site secure; and
-  steps taken to enter into a contract for anything you send us.
+  We do not sell personal information. You can ask us to delete the
+  information we hold about you, and to stop contacting you for
+  newsletters. To make a request, use the contact details in section 15.
 
 ## 11. International transfers
 
 ## 11. International transfers
 
-  Some of our service providers are established outside the United Kingdom:
-  Google LLC, in Ireland and the United States, for audience measurement,
-  and Cloudflare, Inc., in the United States, for hosting and content
-  delivery. When personal information is transferred outside the UK, we rely
-  on an adequacy regulation or on the UK International Data Transfer
-  Addendum to the EU Standard Contractual Clauses.
+  Some of our service providers are established outside Canada: Google LLC,
+  in Ireland and the United States, for audience measurement, and
+  Cloudflare, Inc., in the United States, for hosting and content delivery.
+  When personal information is transferred outside Canada, it is protected by
+  the applicable safeguards, including the EU Standard Contractual Clauses
+  adopted by Google Analytics.
 
 ## 12. Third-party links and advertising
 
@@ -169,4 +174,4 @@ date at the top of this page shows when it was last changed.
 ## 15. Contact
 
 Questions, requests or complaints: [contact@travelstylehub.com](mailto:contact@travelstylehub.com), or by post to
-271 Woodcock Hill, Harrow HA3 0PG, United Kingdom. You may also complain to the Information Commissioner's Office.
+3095 Dundas St W, Toronto, ON M6P 1Z9, Canada. You may also complain to the Office of the Privacy Commissioner of Canada or the privacy regulator of your province or territory.

@@ -1,6 +1,6 @@
 ---
 title: "Contact"
-description: "Have questions or suggestions? Reach the Travel Style Hub editorial desk at contact@travelstylehub.com."
+description: "Have questions or suggestions? Reach the Travel Style Hub editorial desk at contact@travelstylehub.com or use the contact form."
 ---
 
 <p>Have questions or suggestions? The fastest way to reach the Travel Style Hub editorial desk is by email. We read every message and answer within five working days.</p>
@@ -56,10 +56,10 @@ description: "Have questions or suggestions? Reach the Travel Style Hub editoria
 <h2>Postal address</h2>
 
 <p>
-  Rosie Gardiner &mdash; Travel Style Hub<br />
-  271 Woodcock Hill<br />
-  Harrow HA3 0PG<br />
-  United Kingdom
+  Patrick D Culver &mdash; Travel Style Hub<br />
+  3095 Dundas St W<br />
+  Toronto, ON M6P 1Z9<br />
+  Canada
 </p>
 
-<p>You can also reach us on +44 7012 474297.</p>
+<p>You can also reach us on +1 416-549-7510.</p>
