@@ -56,8 +56,10 @@ export const consentScript = `
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  // La mesure d'audience n'est pas soumise à consentement : chaque visite
+  // est comptée. Seule la publicité reste conditionnée au choix.
   window.gtag("consent", "default", {
-    analytics_storage: "denied",
+    analytics_storage: "granted",
     ad_storage: "denied",
     ad_user_data: "denied",
     ad_personalization: "denied"
@@ -99,22 +101,12 @@ export const consentScript = `
   }
 
   /**
-   * Supprime les cookies de mesure d'audience déjà déposés (Google les
-   * pose en first party sur notre domaine) et le stockage local des réseaux
-   * d'affiliation. Indispensable : un signal « Do Not Track » émis après
-   * une acceptation doit effacer ce qui a déjà été déposé.
+   * Supprime le stockage local des réseaux d'affiliation (Kwanko), posé
+   * lorsqu'une bannière publicitaire a été affichée. Appelé quand
+   * l'internaute refuse la publicité.
    */
   function purgeOptionalCookies() {
     try {
-      var cookies = document.cookie ? document.cookie.split(";") : [];
-      cookies.forEach(function (c) {
-        var n = c.trim().split("=")[0];
-        if (!n) return;
-        if (!/^_ga/.test(n) && n !== "_gcs" && !/^kwkn/i.test(n)) return;
-        var host = location.hostname.replace(/^www\./, "");
-        document.cookie = n + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-        document.cookie = n + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=." + host;
-      });
       Object.keys(localStorage).forEach(function (k) {
         if (/^kwkn/i.test(k)) localStorage.removeItem(k);
       });
@@ -122,40 +114,24 @@ export const consentScript = `
   }
 
   function applyConsent(c) {
-    if (!c) return;
+    var ads = !!(c && c.advertising);
     window.gtag("consent", "update", {
-      analytics_storage: c.analytics ? "granted" : "denied",
-      ad_storage: c.advertising ? "granted" : "denied",
-      ad_user_data: c.advertising ? "granted" : "denied",
-      ad_personalization: c.advertising ? "granted" : "denied"
+      analytics_storage: "granted",
+      ad_storage: ads ? "granted" : "denied",
+      ad_user_data: ads ? "granted" : "denied",
+      ad_personalization: ads ? "granted" : "denied"
     });
-    if (c.analytics) loadAnalytics();
-    if (c.advertising) loadAds();
+    if (ads) loadAds();
   }
 
   // ---- Démarrage ----
   //
-  // Consent Mode v2, mode avancé : le tag GA4 est chargé tout de suite,
-  // 'analytics_storage' reste refusé tant que l'internaute n'a pas
-  // accepté. Aucun cookie _ga n'est donc déposé, mais GA4 reçoit quand
-  // même des cookieless pings (sans identifiant, sans donnée
-  // personnelle) et Google modélise ces sessions : le trafic reste visible
-  // dans les rapports au lieu de disparaître.
-  //
-  // Le signal « Do Not Track » / « Global Privacy Control » est la seule
-  // exception : on ne charge alors aucun tag et on efface ce qui a déjà
-  // été déposé.
-  var storedChoice = window.TSH_CONSENT.get();
-  if (storedChoice) {
-    // Un choix est déjà mémorisé : on l'applique avant de charger le tag,
-    // pour que la première page vue soit mesurée avec le bon état.
-    applyConsent(storedChoice);
-  } else if (privacySignalRequested()) {
-    window.TSH_CONSENT.set({ necessary: true, analytics: false, advertising: false });
-    purgeOptionalCookies();
-  } else {
-    loadAnalytics();
-  }
+  // Google Analytics 4 est chargé dans tous les cas : chaque visite est
+  // mesurée, sans attendre de choix et sans dépendre d'un modèle
+  // statistique. Seuls les traceurs publicitaires des réseaux
+  // d'affiliation restent soumis au consentement.
+  loadAnalytics();
+  applyConsent(window.TSH_CONSENT.get());
 
   window.addEventListener("tsh:consent-changed", function (e) {
     applyConsent(e.detail);

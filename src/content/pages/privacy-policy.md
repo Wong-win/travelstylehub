@@ -33,9 +33,10 @@ site working. It is not used to build a profile of you and it is not sold.
 ## 3. Cookies and similar technologies
 
 A cookie is a small file placed on your device when you visit a site. Some
-are needed for the site to work and are always active. The rest are optional:
-they are only loaded if you agree to them through the cookie banner, which
-appears at the bottom of the first page you open.
+are needed for the site to work and for audience measurement, and are always
+active. The advertising cookies are optional: they are only loaded if you
+agree to them through the cookie banner, which appears at the bottom of the
+first page you open.
 
 You can change your mind at any time through the **"Privacy choices"** link
 at the bottom of every page. We also treat the **Do Not Track** and
@@ -53,10 +54,9 @@ shown and no optional tracker is loaded.
 | `_gcs` | Records your consent choice within Google | Google LLC - Google Analytics 4 | Cookie | 13 months |
 | action.metaffiliation.com and cgl.spartoo.com (click redirects) | Affiliate click tracking and measurement of banner impressions | Metaffiliation (Kwanko network) | Cookie | 13 months maximum |
 
-These are the only trackers this website sets. In particular, the audience
-measurement cookies `_ga` and `_ga_XXXXXX` are only set if you accept audience
-measurement, and the affiliate trackers are only set if you accept
-advertising.
+These are the only trackers this website sets. The audience measurement
+cookies `_ga` and `_ga_XXXXXX` are set on every visit; the affiliate trackers
+are only set if you accept advertising.
 
 ### 3.2 Cookie-free audience measurement
 
@@ -68,19 +68,19 @@ is limited to traffic statistics and is not used for advertising or
 profiling. It is disclosed here for transparency.
 
 
-### 3.3 Audience measurement before you answer
+### 3.3 Audience measurement is always active
 
-Google Analytics 4 is loaded from the very start of the page, in a restricted
-mode. If you have not accepted audience measurement, it receives anonymous
-measurements only: no cookie is written, no identifier is created, and nothing
-that could identify you is transmitted. Google then models these sessions so
-that the audience figures stay complete instead of losing every visitor who did
-not answer the banner. You can still refuse at any time, and nothing
-identifiable leaves your browser.
+Google Analytics 4 is loaded on every page and measures every visit. That
+measurement does not depend on a choice you make in the cookie banner: the
+banner only governs advertising. If you would rather not be measured, you can
+block the analytics cookies in your browser settings or use the Do Not Track
+signal, both of which we describe below.
 
-This anonymous measurement relies on our legitimate interest in knowing how
-the site is used. The individual measurement that cookies make possible relies
-on your consent, and only happens once you have given it.
+The measurement is used to count visits and to understand which articles are
+read. It is not used to build an advertising profile and the data is not sold.
+This processing relies on our legitimate interest in knowing how the site is
+used, balanced against your right to object, which you can exercise at any time
+using the contact details in section 15.
 
 ## 4. Affiliate links and advertising
 
@@ -124,8 +124,8 @@ access to them and no responsibility for them.
 
 | Purpose | Data concerned | Legal basis |
 | --- | --- | --- |
-| Measure the audience anonymously, without cookies or identifiers | Request count, page viewed, browser type, truncated IP address | Legitimate interests of the publisher (art. 6.1.f GDPR) |
-| Measure the audience individually, and serve and measure advertising | Cookies, identifiers, click identifier | Your consent |
+| Measure the audience: visits, pages read, traffic sources | Browsing data, cookie identifiers | Legitimate interests of the publisher (art. 6.1.f GDPR) |
+| Serve and measure advertising | Cookies, identifiers, click identifier | Your consent |
 | Measure the effectiveness of the affiliate programmes and trigger the payout | Click identifier, originating page | Legitimate interests of the publisher (art. 6.1.f GDPR) |
 | Keep the site secure and available | Technical connection logs | Legitimate interests of the publisher (art. 6.1.f GDPR) |
 | Reply to the messages sent to us | Content of the message, sender's email address | Steps taken to enter into a contract (art. 6.1.b GDPR) |

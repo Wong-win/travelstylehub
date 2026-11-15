@@ -9,11 +9,10 @@ const prefix = "tsh";
   <div class="tsh-cc__box" role="dialog" aria-modal="false" aria-label="Cookie preferences">
     <p class="tsh-cc__text">
       <strong>This site uses cookies.</strong>
-      Cookies required for the site to work are always on.
-      {siteInfo.analytics.provider} counts visits in a cookie-free mode from the
-      start, and with your consent can also measure them individually. Our
+      Cookies required for the site to work are always on, and
+      {siteInfo.analytics.provider} measures the audience of the site. Our
       affiliate partners ({adNames}) serve advertising only with your consent.
-      You can accept, refuse or customise at any time.
+      You can accept, refuse or customise your advertising choice at any time.
       <a href="/privacy-policy/">Privacy Policy</a>
     </p>
     <div class="tsh-cc__actions">
@@ -38,13 +37,12 @@ const prefix = "tsh";
       </li>
       <li class="tsh-cc__item">
         <label class="tsh-cc__label">
-          <input type="checkbox" data-cat="analytics" />
+          <input type="checkbox" checked disabled />
           <span>Audience measurement</span>
         </label>
         <p class="tsh-cc__desc">
-          {siteInfo.analytics.provider} lets us measure audience and improve
-          our content. No data resale, no advertising use. Without your consent,
-          visits are only counted in an anonymous, cookieless mode.
+          Always on. {siteInfo.analytics.provider} counts visits so we know which
+          articles are read. No data resale, no advertising use.
         </p>
       </li>
       <li class="tsh-cc__item">
@@ -213,7 +211,6 @@ const prefix = "tsh";
   const panel = document.getElementById("tsh-cc-panel");
   const api = (window as unknown as Record<string, any>)["TSH_CONSENT"];
   if (root && panel && api) {
-    const analyticsBox = panel.querySelector<HTMLInputElement>('[data-cat="analytics"]');
     const adsBox = panel.querySelector<HTMLInputElement>('[data-cat="advertising"]');
 
     const show = () => {
@@ -225,16 +222,15 @@ const prefix = "tsh";
       panel.hidden = true;
     };
 
-    const write = (analytics: boolean, advertising: boolean) => {
-      api.set({ necessary: true, analytics, advertising, ts: Date.now() });
-      // Un refus doit effacer les traceurs déjà déposés.
-      if (!analytics || !advertising) api.purge();
+    const write = (advertising: boolean) => {
+      api.set({ necessary: true, analytics: true, advertising, ts: Date.now() });
+      // Un refus efface le stockage des réseaux d'affiliation déjà déposé.
+      if (!advertising) api.purge();
       hide();
     };
 
     const openPreferences = () => {
       const c = api.get();
-      if (analyticsBox) analyticsBox.checked = !!(c && c.analytics);
       if (adsBox) adsBox.checked = !!(c && c.advertising);
       root.hidden = false;
       panel.hidden = false;
@@ -244,11 +240,10 @@ const prefix = "tsh";
       const target = event.target as HTMLElement;
       const action = target.getAttribute("data-action");
       if (!action) return;
-      if (action === "accept") write(true, true);
-      else if (action === "refuse") write(false, false);
+      if (action === "accept") write(true);
+      else if (action === "refuse") write(false);
       else if (action === "customise") openPreferences();
-      else if (action === "save")
-        write(!!(analyticsBox && analyticsBox.checked), !!(adsBox && adsBox.checked));
+      else if (action === "save") write(!!(adsBox && adsBox.checked));
     });
 
     // Exposed for the footer ("Privacy choices").
