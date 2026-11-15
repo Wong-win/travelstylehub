@@ -67,6 +67,21 @@ does not follow you from one site to another, and it cannot identify you. It
 is limited to traffic statistics and is not used for advertising or
 profiling. It is disclosed here for transparency.
 
+
+### 3.3 Audience measurement before you answer
+
+Google Analytics 4 is loaded from the very start of the page, in a restricted
+mode. If you have not accepted audience measurement, it receives anonymous
+measurements only: no cookie is written, no identifier is created, and nothing
+that could identify you is transmitted. Google then models these sessions so
+that the audience figures stay complete instead of losing every visitor who did
+not answer the banner. You can still refuse at any time, and nothing
+identifiable leaves your browser.
+
+This anonymous measurement relies on our legitimate interest in knowing how
+the site is used. The individual measurement that cookies make possible relies
+on your consent, and only happens once you have given it.
+
 ## 4. Affiliate links and advertising
 
 Some articles contain affiliate links. If you follow one of them and buy
@@ -104,6 +119,16 @@ access to them and no responsibility for them.
 | Your cookie consent choice | 6 months |
 | Technical connection logs | Between 24 hours and 12 months, depending on the log |
 | Messages sent to us | Kept for as long as needed to deal with the request, then deleted |
+
+## 7. Legal bases
+
+| Purpose | Data concerned | Legal basis |
+| --- | --- | --- |
+| Measure the audience anonymously, without cookies or identifiers | Request count, page viewed, browser type, truncated IP address | Legitimate interests of the publisher (art. 6.1.f GDPR) |
+| Measure the audience individually, and serve and measure advertising | Cookies, identifiers, click identifier | Your consent |
+| Measure the effectiveness of the affiliate programmes and trigger the payout | Click identifier, originating page | Legitimate interests of the publisher (art. 6.1.f GDPR) |
+| Keep the site secure and available | Technical connection logs | Legitimate interests of the publisher (art. 6.1.f GDPR) |
+| Reply to the messages sent to us | Content of the message, sender's email address | Steps taken to enter into a contract (art. 6.1.b GDPR) |
 
 ## 9. How we protect the information
 

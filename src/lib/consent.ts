@@ -123,40 +123,38 @@ export const consentScript = `
 
   function applyConsent(c) {
     if (!c) return;
-    if (c.analytics) {
-      window.gtag("consent", "update", { analytics_storage: "granted" });
-      loadAnalytics();
-    } else {
-      window.gtag("consent", "update", { analytics_storage: "denied" });
-    }
-    if (c.advertising) {
-      window.gtag("consent", "update", {
-        ad_storage: "granted",
-        ad_user_data: "granted",
-        ad_personalization: "granted"
-      });
-      loadAds();
-    } else {
-      window.gtag("consent", "update", {
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied"
-      });
-    }
+    window.gtag("consent", "update", {
+      analytics_storage: c.analytics ? "granted" : "denied",
+      ad_storage: c.advertising ? "granted" : "denied",
+      ad_user_data: c.advertising ? "granted" : "denied",
+      ad_personalization: c.advertising ? "granted" : "denied"
+    });
+    if (c.analytics) loadAnalytics();
+    if (c.advertising) loadAds();
   }
 
-  applyConsent(window.TSH_CONSENT.get());
-
-  // Signal « Do Not Track » / « Global Privacy Control » : refus mémorisé,
-  // aucun bandeau, aucun traceur facultatif chargé.
-  if (!window.TSH_CONSENT.get() && privacySignalRequested()) {
+  // ---- Démarrage ----
+  //
+  // Consent Mode v2, mode avancé : le tag GA4 est chargé tout de suite,
+  // 'analytics_storage' reste refusé tant que l'internaute n'a pas
+  // accepté. Aucun cookie _ga n'est donc déposé, mais GA4 reçoit quand
+  // même des cookieless pings (sans identifiant, sans donnée
+  // personnelle) et Google modélise ces sessions : le trafic reste visible
+  // dans les rapports au lieu de disparaître.
+  //
+  // Le signal « Do Not Track » / « Global Privacy Control » est la seule
+  // exception : on ne charge alors aucun tag et on efface ce qui a déjà
+  // été déposé.
+  var storedChoice = window.TSH_CONSENT.get();
+  if (storedChoice) {
+    // Un choix est déjà mémorisé : on l'applique avant de charger le tag,
+    // pour que la première page vue soit mesurée avec le bon état.
+    applyConsent(storedChoice);
+  } else if (privacySignalRequested()) {
     window.TSH_CONSENT.set({ necessary: true, analytics: false, advertising: false });
     purgeOptionalCookies();
-  } else if (window.TSH_CONSENT.get() && privacySignalRequested()) {
-    // Le signal a été émis après une acceptation : on efface ce qui a déjà
-    // été déposé et on passe en refus.
-    window.TSH_CONSENT.set({ necessary: true, analytics: false, advertising: false });
-    purgeOptionalCookies();
+  } else {
+    loadAnalytics();
   }
 
   window.addEventListener("tsh:consent-changed", function (e) {
