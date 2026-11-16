@@ -80,12 +80,35 @@ export const consentScript = `
    * Chargeurs publicitaires : le script de chaque emplacement est inséré
    * dans le conteneur de l'emplacement, et l'appel getSlot n'a lieu qu'une
    * fois ce script effectivement chargé.
+   *
+   * Deux modes sont possibles :
+   *  - data-ad-display : la creative « display » du réseau est chargée dans
+   *    une iframe. La requête porte l'identifiant de suivi, elle vaut donc
+   *    impression, et le lien de suivi est à l'intérieur de la creative.
+   *    Ce mode est privilégié : le SDK abandonne l'affichage d'une création
+   *    demandée avant la fin du chargement de la page.
+   *  - data-ad-slot + data-ad-loader : le SDK du réseau est chargé et
+   *    l'emplacement lui est demandé.
    */
   function loadAds() {
-    var slots = Array.prototype.slice.call(document.querySelectorAll("[data-ad-slot]"));
+    var slots = Array.prototype.slice.call(document.querySelectorAll("[data-ad-slot], [data-ad-display]"));
     slots.forEach(function (el) {
       if (el.getAttribute("data-ad-loaded") === "1") return;
       el.setAttribute("data-ad-loaded", "1");
+      var display = el.getAttribute("data-ad-display");
+      if (display) {
+        var frame = document.createElement("iframe");
+        frame.width = el.getAttribute("data-ad-width") || "728";
+        frame.height = el.getAttribute("data-ad-height") || "90";
+        frame.setAttribute("frameborder", "0");
+        frame.setAttribute("scrolling", "no");
+        frame.style.border = "0";
+        frame.style.display = "block";
+        frame.src = display;
+        el.appendChild(frame);
+        return;
+      }
+      var slotId = el.getAttribute("data-ad-slot");
       var loader = document.createElement("script");
       loader.type = "text/javascript";
       loader.async = true;
@@ -93,11 +116,25 @@ export const consentScript = `
       loader.onload = function () {
         if (typeof window.KwankoSDKLoader === "undefined") return;
         try {
-          new window.KwankoSDKLoader.getSlot(el.getAttribute("data-ad-slot"));
+          new window.KwankoSDKLoader.getSlot(slotId);
         } catch (e) {}
       };
       el.appendChild(loader);
     });
+  }
+
+  /**
+   * Ce script est exécuté dans le <head> : au premier appel, le corps de la
+   * page n'est pas encore analysé et aucun emplacement n'est trouvé. On
+   * retente une fois le document prêt, pour que le visiteur qui a déjà
+   * accepté la publicité voie la bannière dès son arrivée.
+   */
+  function scheduleLoadAds() {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", loadAds, { once: true });
+    } else {
+      loadAds();
+    }
   }
 
   /**
@@ -121,7 +158,7 @@ export const consentScript = `
       ad_user_data: ads ? "granted" : "denied",
       ad_personalization: ads ? "granted" : "denied"
     });
-    if (ads) loadAds();
+    if (ads) scheduleLoadAds();
   }
 
   // ---- Démarrage ----

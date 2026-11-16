@@ -1,0 +1,90 @@
+---
+/**
+ * Emplacement publicitaire (Kwanko / Metaffiliation).
+ *
+ * La creative « display » du réseau est chargée dans une iframe, et celle-ci
+ * n'est injectée qu'après consentement (src/lib/consent.ts) : aucun traceur
+ * n'est déposé tant que l'internaute n'a pas accepté la publicité. Le repli
+ * <noscript> est volontairement absent — sans JavaScript aucun consentement
+ * ne peut être recueilli, il donc chargerait un traceur sans accord.
+ *
+ * Le libellé « Advertisement » est exigé par la politique de confidentialité
+ * (« their presence is labelled "Advertisement" »).
+ */
+interface Props {
+  /** URL « display » du réseau : l'identifiant N de l'emplacement. */
+  display: string;
+  width?: number;
+  height?: number;
+}
+
+const { display, width = 728, height = 90 } = Astro.props;
+---
+
+<div class="ad-slot">
+  <span class="ad-slot__label">Advertisement</span>
+  <div
+    class="ad-slot__frame"
+    data-ad-display={display}
+    data-ad-width={String(width)}
+    data-ad-height={String(height)}
+  ></div>
+</div>
+
+<style>
+  .ad-slot {
+    width: min(1250px, 100%);
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Rien n'est montré avant le consentement : ni le libellé, ni un vide. */
+  .ad-slot:has(.ad-slot__frame:not([data-ad-loaded="1"])) {
+    display: none;
+  }
+
+  .ad-slot__label {
+    margin-bottom: 6px;
+    color: var(--hp-text-muted, #777777);
+    font: 700 10px/1 "Roboto", Arial, sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ad-slot__frame {
+    width: 100%;
+    max-width: 728px;
+    overflow: hidden;
+  }
+
+  @media (max-width: 760px) {
+    .ad-slot {
+      margin-bottom: 16px;
+    }
+  }
+</style>
+
+<script>
+  // La bannière fait 728 px de large : sur les écrans étroits elle est
+  // réduite à la largeur disponible plutôt que d'être rognée.
+  document.querySelectorAll<HTMLElement>(".ad-slot__frame").forEach((frame) => {
+    const width = Number(frame.dataset.adWidth) || 728;
+    const height = Number(frame.dataset.adHeight) || 90;
+
+    const fit = () => {
+      const iframe = frame.querySelector<HTMLIFrameElement>("iframe");
+      if (!iframe) return;
+      const available = frame.clientWidth || width;
+      const scale = Math.min(1, available / width);
+      iframe.style.transform = `scale(${scale})`;
+      iframe.style.transformOrigin = "top left";
+      frame.style.height = `${Math.round(height * scale)}px`;
+    };
+
+    // L'iframe est injectée par le module de consentement : on l'observe.
+    new MutationObserver(fit).observe(frame, { childList: true, subtree: true });
+    window.addEventListener("resize", fit);
+  });
+</script>

@@ -50,7 +50,7 @@ shown and no optional tracker is loaded.
 | `_ga` | Audience measurement: visits, page views, traffic sources | Google LLC - Google Analytics 4 | Cookie | 2 years |
 | `_ga_XXXXXX` | Distinguishes visitors so a single person is not counted twice | Google LLC - Google Analytics 4 | Cookie | 2 years |
 | `_gcs` | Records your consent choice within Google | Google LLC - Google Analytics 4 | Cookie | 13 months |
-| action.metaffiliation.com and cgl.spartoo.com (click redirects) | Affiliate click tracking and measurement of banner impressions | Metaffiliation (Kwanko network) | Cookie | 13 months maximum |
+| action.metaffiliation.com and img.metaffiliation.com (banner delivery and click redirects), cgl.spartoo.com (click redirects) | Affiliate click tracking and measurement of banner impressions | Metaffiliation (Kwanko network) | Cookie | 13 months maximum |
 
 These are the only trackers this website sets. The audience measurement
 cookies `_ga` and `_ga_XXXXXX` are set on every visit; the affiliate trackers

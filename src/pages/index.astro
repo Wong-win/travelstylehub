@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import AdBanner from "../components/AdBanner.astro";
 import { getCollection } from "astro:content";
 import { decodeEntities } from "../utils/decode-entities";
 
@@ -36,6 +37,11 @@ const latest = articles.slice(10, 18);
 
 <Layout title="Home" description="Travel inspiration, destinations, aviation, fashion and food - curated stories and guides from around the world.">
   <div class="home-page">
+    <!-- Bannière partenaire Voyage Privé (728x90), au-dessus du hero.
+         La creative est injectée par le module de consentement
+         (src/lib/consent.ts) : aucun traceur n'est déposé avant l'accord. -->
+    <AdBanner display="https://action.metaffiliation.com/trk.php?maff=N513277582D1D1D19" />
+
     <section class="front-grid" aria-label="Featured stories">
       <div class="front-main">
         <div class="feature-grid">
