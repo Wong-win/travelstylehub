@@ -3,8 +3,6 @@ title: "Privacy Policy"
 description: "How Travel Style Hub handles your data, which cookies and trackers are used, and how to exercise your rights."
 ---
 
-# Privacy Policy
-
 *Last updated: 14 November 2026*
 
 ## 1. Who we are
@@ -80,7 +78,7 @@ The measurement is used to count visits and to understand which articles are
 read. It is not used to build an advertising profile and the data is not sold.
 This processing relies on our legitimate interest in knowing how the site is
 used, balanced against your right to object, which you can exercise at any time
-using the contact details in section 15.
+using the contact details in section 14.
 
 ## 4. Affiliate links and advertising
 
@@ -130,16 +128,14 @@ access to them and no responsibility for them.
 | Keep the site secure and available | Technical connection logs | Legitimate interests of the publisher (art. 6.1.f GDPR) |
 | Reply to the messages sent to us | Content of the message, sender's email address | Steps taken to enter into a contract (art. 6.1.b GDPR) |
 
-## 9. How we protect the information
+## 8. How we protect the information
 
   The site is served over HTTPS. Access to the hosting and analytics
   accounts is restricted to password and two-factor authentication. We do
   not ask for, and you should not send us, financial account numbers,
   government identifiers or passwords.
 
-## 10. Your rights
-
-## 10. Your rights and choices
+## 9. Your rights and choices
 
   Under the Personal Information Protection and Electronic Documents Act
   (PIPEDA), which applies to our commercial activity, you have the right to
@@ -163,11 +159,9 @@ access to them and no responsibility for them.
 
   We do not sell personal information. You can ask us to delete the
   information we hold about you, and to stop contacting you for
-  newsletters. To make a request, use the contact details in section 15.
+  newsletters. To make a request, use the contact details in section 14.
 
-## 11. International transfers
-
-## 11. International transfers
+## 10. International transfers
 
   Some of our service providers are established outside Canada: Google LLC,
   in Ireland and the United States, for audience measurement, and
@@ -176,27 +170,25 @@ access to them and no responsibility for them.
   the applicable safeguards, including the EU Standard Contractual Clauses
   adopted by Google Analytics.
 
-## 12. Third-party links and advertising
+## 11. Third-party links and advertising
 
 Our articles link to external websites. We are not responsible for the
 content or the privacy practices of those sites, and their own policies
 apply to you when you visit them.
 
-## 13. Children
-
-## 13. Children
+## 12. Children
 
   The site is written for adults and is not directed at children under 13.
   We do not knowingly collect personal information from children under 13.
   If you believe a child has sent us personal information, contact us and we
   will delete it.
 
-## 14. Changes to this policy
+## 13. Changes to this policy
 
 We may update this policy to reflect changes in the site or in the law. The
 date at the top of this page shows when it was last changed.
 
-## 15. Contact
+## 14. Contact
 
 Questions, requests or complaints: [contact@travelstylehub.com](mailto:contact@travelstylehub.com), or by post to
 3095 Dundas St W, Toronto, ON M6P 1Z9, Canada. You may also complain to the Office of the Privacy Commissioner of Canada or the privacy regulator of your province or territory.
