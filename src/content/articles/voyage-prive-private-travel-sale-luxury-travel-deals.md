@@ -1,6 +1,7 @@
 ---
 title: "Inside Voyage Privé: How France's Private Travel Sale Sells Luxury Trips at Up to 70% Off"
 date: "2026-10-28T10:00:00"
+pinned: true
 category: "destinations"
 keywords: "Voyage Privé, private travel sale, luxury travel deals, five star hotels France, last minute luxury holidays, guided circuit tours Europe, Nile cruise deals, travel club membership"
 excerpt: "Founded in France in 2006, Voyage Privé has built an online club around a simple idea: sell hotel rooms, cruises and guided tours to members only, for a limited window, at prices the high street cannot match. Here is how the model actually works — and who it suits."

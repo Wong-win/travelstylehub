@@ -1,6 +1,7 @@
 ---
 title: "The Hotel Bed Problem: What a French Sleep Brand Gets Right About Coming Home"
 date: "2026-11-16T10:00:00"
+pinned: true
 category: "travel"
 keywords: "Morphea mattress, French mattress brand, hotel bed at home, Morphea review, buy mattress France, Paris showroom mattress, hybrid mattress France, hotel bedding"
 excerpt: "You sleep better in hotels, and it is not only the thread count. Morphea, a Paris sleep brand born out of the hospitality trade, sells the hotel formula to ordinary bedrooms — with a few very French catches worth knowing before you order."

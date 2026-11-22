@@ -1,6 +1,7 @@
 ---
 title: "How to Book a French Club Holiday with Vacances Bleues: Half-Board, Kids' Clubs and the Fine Print"
 date: "2026-10-28T14:30:00"
+pinned: true
 category: "destinations"
 keywords: "Vacances Bleues, French club holiday, demi-pension, half board France, French kids club, village de vacances, Menton hotel, French Alps family ski, taxe de séjour, Le Cercle Bleu"
 excerpt: "Half-board, supervised kids' clubs and a village built for walking - the French club holiday is a genuinely different way to travel. Here is how to book one, what it really costs, and where the model falls short."

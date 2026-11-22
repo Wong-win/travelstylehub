@@ -18,13 +18,6 @@ const articleImage = (article: Article) =>
   article.data.image || `https://picsum.photos/seed/${article.slug}/900/600`;
 const articleTitle = (article: Article) => decodeEntities(article.data.title);
 const articleExcerpt = (article: Article) => decodeEntities(article.data.excerpt || "");
-const dateLabel = (article: Article) =>
-  new Date(article.data.date).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
 const featured = articles.slice(0, 5);
 const recent = articles.slice(5, 11);
 const fashion = byCategory("fashion").slice(0, 6);
@@ -55,7 +48,6 @@ const latest = articles.slice(10, 18);
               <img fetchpriority="high" loading="eager" decoding="sync" src={articleImage(article)} alt="" />
               <div class="feature-copy">
                 <h2>{articleTitle(article)}</h2>
-                <time datetime={article.data.date}>{dateLabel(article)}</time>
               </div>
             </a>
           ))}
@@ -64,7 +56,6 @@ const latest = articles.slice(10, 18);
               <img loading="eager" decoding="sync" src={articleImage(article)} alt="" />
               <div class="feature-copy">
                 <h2>{articleTitle(article)}</h2>
-                <time datetime={article.data.date}>{dateLabel(article)}</time>
               </div>
             </a>
           ))}
@@ -83,7 +74,6 @@ const latest = articles.slice(10, 18);
                   <img loading="lazy" decoding="async" src={articleImage(article)} alt="" />
                   <div>
                     <h3>{articleTitle(article)}</h3>
-                    <time datetime={article.data.date}>{dateLabel(article)}</time>
                   </div>
                 </a>
               ))}
@@ -112,7 +102,6 @@ const latest = articles.slice(10, 18);
                   {fashion.slice(3, 8).map((article) => (
                     <a href={articleUrl(article)}>
                       <h3>{articleTitle(article)}</h3>
-                      <time datetime={article.data.date}>{dateLabel(article)}</time>
                     </a>
                   ))}
                 </div>
@@ -149,14 +138,12 @@ const latest = articles.slice(10, 18);
           <a class="recent-lead" href={articleUrl(recent[0])}>
             <img loading="lazy" decoding="async" src={articleImage(recent[0])} alt="" />
             <h3>{articleTitle(recent[0])}</h3>
-            <time datetime={recent[0].data.date}>{dateLabel(recent[0])}</time>
           </a>
           {recent.slice(1).map((article) => (
             <a class="recent-row" href={articleUrl(article)}>
               <img loading="lazy" decoding="async" src={articleImage(article)} alt="" />
               <div>
                 <h3>{articleTitle(article)}</h3>
-                <time datetime={article.data.date}>{dateLabel(article)}</time>
               </div>
             </a>
           ))}
@@ -190,7 +177,6 @@ const latest = articles.slice(10, 18);
             <img loading="lazy" decoding="async" src={articleImage(article)} alt="" />
             <span>Aviation</span>
             <h3>{articleTitle(article)}</h3>
-            <time datetime={article.data.date}>{dateLabel(article)}</time>
           </a>
         ))}
       </div>
@@ -207,7 +193,6 @@ const latest = articles.slice(10, 18);
             <img loading="lazy" decoding="async" src={articleImage(article)} alt="" />
             <span>Lifestyle</span>
             <h3>{articleTitle(article)}</h3>
-            <time datetime={article.data.date}>{dateLabel(article)}</time>
           </a>
         ))}
       </div>
@@ -221,7 +206,6 @@ const latest = articles.slice(10, 18);
             <span>{String(index + 1).padStart(2, "0")}</span>
             <div>
               <h3>{articleTitle(article)}</h3>
-              <time datetime={article.data.date}>{dateLabel(article)}</time>
             </div>
           </a>
         ))}
@@ -236,7 +220,6 @@ const latest = articles.slice(10, 18);
               <div>
                 <span>{article.data.category}</span>
                 <h3><a href={articleUrl(article)}>{articleTitle(article)}</a></h3>
-                <time datetime={article.data.date}>{dateLabel(article)}</time>
                 <p>{articleExcerpt(article)}</p>
               </div>
             </article>
