@@ -38,7 +38,7 @@
 /2025/05/06/premiere-visite-a-mykonos-guide-pour-les-debutants/ /2025/05/07/first-visit-mykonos-beginner-guide/ 301
 /2025/05/12/la-cuisine-slovaque-un-voyage-gustatif-incontournable/ /2025/03/25/slovak-cuisine-unmissable-culinary-journey/ 301
 /2025/05/17/mon-avis-sur-le-service-en-classe-economique-de-turkish-airlines/ /2025/04/02/my-review-turkish-airlines-economy-class-service/ 301
-/2025/05/24/auchan-voyages-votre-passeport-vers-lextraordinaire/ /2025/04/11/auchan-voyages-votre-passeport-vers-lextraordinaire/ 301
+/2025/05/24/auchan-voyages-votre-passeport-vers-lextraordinaire/ /2025/04/11/auchan-voyages-passport-extraordinary/ 301
 /2025/05/24/decouvrez-la-vallee-du-douro-en-train-lors-dune-excursion-dune-journee-depuis-porto/ /2025/04/20/discover-douro-valley-train-day-trip-porto/ 301
 /2025/06/06/mon-avis-sur-les-services-de-qatar-airways/ /2025/04/28/my-review-qatar-airways-services/ 301
 /2025/06/08/premiere-visite-a-mykonos-guide-pour-les-debutants/ /2025/05/07/first-visit-mykonos-beginner-guide/ 301
@@ -138,3 +138,7 @@
 /2026/04/24/les-specialites-culinaires-francaises-par-region/ /2026/04/24/french-culinary-specialties-region/ 301
 /2026/05/03/la-cuisine-vegetarienne-a-travers-le-monde-traditions-et-saveurs/ /2026/05/03/vegetarian-cuisine-around-world-traditions-flavors/ 301
 /2026/05/12/les-meilleurs-cours-de-cuisine-pour-voyageurs/ /2026/05/12/best-cooking-classes-travelers/ 301
+
+# 2026-11-22 slug 语言迁移
+/2025/04/11/auchan-voyages-votre-passeport-vers-lextraordinaire/ /2025/04/11/auchan-voyages-passport-extraordinary/ 301
+/2026/01/11/shabiller-selon-sa-destination-guide-pratique-par-continent/ /2026/01/11/dressing-according-destination-practical-guide-continent/ 301
