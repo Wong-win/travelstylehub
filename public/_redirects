@@ -142,3 +142,9 @@
 # 2026-11-22 slug 语言迁移
 /2025/04/11/auchan-voyages-votre-passeport-vers-lextraordinaire/ /2025/04/11/auchan-voyages-passport-extraordinary/ 301
 /2026/01/11/shabiller-selon-sa-destination-guide-pratique-par-continent/ /2026/01/11/dressing-according-destination-practical-guide-continent/ 301
+
+# 2026-11-22 移除法语正文文章（英文站）
+/2025/10/17/destinations-emergentes-en-asie-du-sud-est-pour-2026/ /destinations/ 301
+/2025/10/26/road-trip-en-ecosse-itineraire-complet-et-conseils-pratiques/ /destinations/ 301
+/2025/11/03/voyager-seule-destinations-ideales-et-conseils-pour-femmes-aventurieres/ /destinations/ 301
+/2025/11/12/la-mode-ethique-comment-shabiller-responsable-en-2026/ /fashion/ 301
