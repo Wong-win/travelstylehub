@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "migrate": "node scripts/migrate-wordpress.mjs",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "prebuild": "SITE_LANG=en node scripts/check-slug-lang.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
