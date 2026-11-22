@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const { Content } = await article.render();
-const hasAffiliate = /action\.metaffiliation\.com|cgl\.spartoo\.com|iar\.habitatetjardin\.com|wam\.recommerce\.com/.test(article.body || "");
+const hasAffiliate = /action\.metaffiliation\.com|cgl\.spartoo\.com|iar\.habitatetjardin\.com|wam\.recommerce\.com|cbh\.compressport\.com/.test(article.body || "");
 const name = article.data.category.replace(/-/g, " ").replace(/\b\w/g, (letter: string) => letter.toUpperCase());
 ---
 
