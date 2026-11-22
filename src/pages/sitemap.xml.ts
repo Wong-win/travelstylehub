@@ -7,7 +7,7 @@ export const GET: APIRoute = async ({ site }) => {
   const pages = await getCollection("pages");
   const urls = [
     "/",
-    "/aviation/", "/destinations/", "/fashion/", "/food/",
+    "/aviation/", "/lifestyle/", "/destinations/", "/fashion/", "/food/",
     ...pages.map(page => `/${page.slug}/`),
     ...articles.map(article => `/${article.data.year}/${article.data.month}/${article.data.day}/${article.slug}/`),
   ];

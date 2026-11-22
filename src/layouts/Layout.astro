@@ -15,10 +15,10 @@ export interface Props {
 const { title, description, noindex = false } = Astro.props;
 const siteTitle = title
   ? `${title} - Travel Style Hub`
-  : "Travel Style Hub - Travel inspiration, destinations, aviation, fashion and food";
+  : "Travel Style Hub - Travel inspiration, destinations, aviation, fashion, food and lifestyle";
 const siteDescription =
   description ||
-  "Travel inspiration, destinations, aviation, fashion and food.";
+  "Travel inspiration, destinations, aviation, fashion, food and home lifestyle.";
 const consentMaxAge = String(siteInfo.consent.maxAgeDays * 24 * 3600 * 1000);
 
 ---

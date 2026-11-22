@@ -31,11 +31,12 @@ const fashion = byCategory("fashion").slice(0, 6);
 const food = byCategory("food").slice(0, 5);
 const destinations = byCategory("destinations").slice(0, 5);
 const aviation = byCategory("aviation").slice(0, 4);
+const lifestyle = byCategory("lifestyle").slice(0, 4);
 const popular = [aviation[0], food[0], fashion[0], destinations[0], aviation[1], food[1], fashion[1]].filter(Boolean);
 const latest = articles.slice(10, 18);
 ---
 
-<Layout title="Home" description="Travel inspiration, destinations, aviation, fashion and food - curated stories and guides from around the world.">
+<Layout title="Home" description="Travel inspiration, destinations, aviation, fashion, food and lifestyle - curated stories and guides from around the world.">
   <div class="home-page">
     <!-- Bannière partenaire Voyage Privé (728x90), au-dessus du hero.
          La creative est injectée par le module de consentement
@@ -183,11 +184,28 @@ const latest = articles.slice(10, 18);
         <h2>Aviation</h2>
         <a href="/aviation">View all</a>
       </header>
-      <div class="aviation-grid">
+      <div class="strip-grid">
         {aviation.map((article) => (
-          <a class="aviation-card" href={articleUrl(article)}>
+          <a class="strip-card" href={articleUrl(article)}>
             <img loading="lazy" decoding="async" src={articleImage(article)} alt="" />
             <span>Aviation</span>
+            <h3>{articleTitle(article)}</h3>
+            <time datetime={article.data.date}>{dateLabel(article)}</time>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="wide-section lifestyle-section">
+      <header class="section-heading section-heading--wide">
+        <h2>Lifestyle</h2>
+        <a href="/lifestyle">View all</a>
+      </header>
+      <div class="strip-grid">
+        {lifestyle.map((article) => (
+          <a class="strip-card" href={articleUrl(article)}>
+            <img loading="lazy" decoding="async" src={articleImage(article)} alt="" />
+            <span>Lifestyle</span>
             <h3>{articleTitle(article)}</h3>
             <time datetime={article.data.date}>{dateLabel(article)}</time>
           </a>
@@ -753,17 +771,17 @@ const latest = articles.slice(10, 18);
     margin-bottom: 20px;
   }
 
-  .aviation-grid {
+  .strip-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--hp-gap-md);
   }
 
-  .aviation-card {
+  .strip-card {
     display: block;
   }
 
-  .aviation-card img {
+  .strip-card img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
@@ -771,11 +789,11 @@ const latest = articles.slice(10, 18);
     transition: opacity 0.3s;
   }
 
-  .aviation-card:hover img {
+  .strip-card:hover img {
     opacity: 0.85;
   }
 
-  .aviation-card > span {
+  .strip-card > span {
     color: var(--hp-accent);
     font-size: 10px;
     font-weight: 700;
@@ -783,7 +801,7 @@ const latest = articles.slice(10, 18);
     text-transform: uppercase;
   }
 
-  .aviation-card h3 {
+  .strip-card h3 {
     margin: 6px 0 8px;
     font: 700 17px/1.3 "Roboto", Arial, sans-serif;
     display: -webkit-box;
@@ -943,7 +961,7 @@ const latest = articles.slice(10, 18);
       grid-template-columns: 1fr;
     }
 
-    .aviation-grid {
+    .strip-grid {
       grid-template-columns: 1fr 1fr;
     }
 
@@ -965,7 +983,7 @@ const latest = articles.slice(10, 18);
       padding: 12px 10px 40px;
     }
 
-    .aviation-grid,
+    .strip-grid,
     .fashion-links,
     .food-list,
     .latest-list {
