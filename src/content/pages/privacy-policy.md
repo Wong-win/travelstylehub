@@ -32,14 +32,14 @@ site working. It is not used to build a profile of you and it is not sold.
 
 A cookie is a small file placed on your device when you visit a site. Some
 are needed for the site to work and for audience measurement, and are always
-active. Advertising cookies are loaded on every visit: the affiliate banners
-displayed on the site set impression-tracking and click-tracking cookies,
-described in section 3.1.
+active. The advertising cookies are optional: they are only loaded if you
+agree to them through the cookie banner, which appears at the bottom of the
+first page you open.
 
-The **"Privacy choices"** link at the bottom of every page reopens this
-notice. The **Do Not Track** and **Global Privacy Control** signals do not
-change how the advertising banners are loaded; you can block those cookies in
-your browser settings at any time.
+You can change your mind at any time through the **"Privacy choices"** link
+at the bottom of every page. We also treat the **Do Not Track** and
+**Global Privacy Control** signals as a refusal: in that case no banner is
+shown and no optional tracker is loaded.
 
 ### 3.1 The trackers we actually use
 
@@ -69,9 +69,10 @@ profiling. It is disclosed here for transparency.
 ### 3.3 Audience measurement is always active
 
 Google Analytics 4 is loaded on every page and measures every visit. That
-measurement does not depend on a choice you make in the cookie banner. If you
-would rather not be measured, you can block the analytics cookies in your
-browser settings.
+measurement does not depend on a choice you make in the cookie banner: the
+banner only governs advertising. If you would rather not be measured, you can
+block the analytics cookies in your browser settings or use the Do Not Track
+signal, both of which we describe below.
 
 The measurement is used to count visits and to understand which articles are
 read. It is not used to build an advertising profile and the data is not sold.
@@ -122,7 +123,7 @@ access to them and no responsibility for them.
 | Purpose | Data concerned | Legal basis |
 | --- | --- | --- |
 | Measure the audience: visits, pages read, traffic sources | Browsing data, cookie identifiers | Legitimate interests of the publisher (art. 6.1.f GDPR) |
-| Serve and measure advertising | Cookies, identifiers, click identifier | Legitimate interests of the publisher (art. 6.1.f GDPR) |
+| Serve and measure advertising | Cookies, identifiers, click identifier | Your consent |
 | Measure the effectiveness of the affiliate programmes and trigger the payout | Click identifier, originating page | Legitimate interests of the publisher (art. 6.1.f GDPR) |
 | Keep the site secure and available | Technical connection logs | Legitimate interests of the publisher (art. 6.1.f GDPR) |
 | Reply to the messages sent to us | Content of the message, sender's email address | Steps taken to enter into a contract (art. 6.1.b GDPR) |
@@ -143,10 +144,10 @@ access to them and no responsibility for them.
 
   Consent is required for the collection, use and disclosure of personal
   information that is not necessary to provide a service you have requested.
-  We rely on our legitimate interests for audience measurement and for the
-  display of affiliate banners. You can object to that processing by
-  blocking the cookies in your browser settings; this does not affect the
-  lawfulness of our use of the information before that point.
+  We rely on your consent for audience measurement and for advertising
+  cookies, and you can withdraw it at any time through the "Privacy
+  choices" link at the bottom of every page. Withdrawing consent does not
+  affect the lawfulness of our use of the information before that point.
 
   You may also request access to and correction of your personal information
   under the privacy legislation of your province or territory of residence.
