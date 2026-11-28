@@ -9,62 +9,16 @@ const prefix = "tsh";
   <div class="tsh-cc__box" role="dialog" aria-modal="false" aria-label="Cookie preferences">
     <p class="tsh-cc__text">
       <strong>This site uses cookies.</strong>
-      Cookies required for the site to work are always on, and
-      {siteInfo.analytics.provider} measures the audience of the site. Our
-      affiliate partners ({adNames}) serve advertising only with your consent.
-      You can accept, refuse or customise your advertising choice at any time.
+      Cookies required for the site to work are always on, and {siteInfo.analytics.provider} measures the audience of the site. Advertising banners from our affiliate partners ({adNames}) are displayed on every visit: loading them sets impression-tracking and click-tracking cookies. Cloudflare measures traffic anonymously, without cookies or advertising identifiers.
       <a href="/privacy-policy/">Privacy Policy</a>
     </p>
     <div class="tsh-cc__actions">
-      <button type="button" class="tsh-cc__btn" data-action="refuse">Refuse</button>
-      <button type="button" class="tsh-cc__btn" data-action="accept">Accept</button>
-      <button type="button" class="tsh-cc__link" data-action="customise">Customise</button>
-    </div>
-  </div>
-
-  <div class="tsh-cc__panel" id="tsh-cc-panel" hidden>
-    <h2 class="tsh-cc__title">Cookie preferences</h2>
-    <ul class="tsh-cc__list">
-      <li class="tsh-cc__item">
-        <label class="tsh-cc__label">
-          <input type="checkbox" checked disabled />
-          <span>Strictly necessary cookies</span>
-        </label>
-        <p class="tsh-cc__desc">
-          Required for the site to work (they remember your cookie choice).
-          They are never disabled.
-        </p>
-      </li>
-      <li class="tsh-cc__item">
-        <label class="tsh-cc__label">
-          <input type="checkbox" checked disabled />
-          <span>Audience measurement</span>
-        </label>
-        <p class="tsh-cc__desc">
-          Always on. {siteInfo.analytics.provider} counts visits so we know which
-          articles are read. No data resale, no advertising use.
-        </p>
-      </li>
-      <li class="tsh-cc__item">
-        <label class="tsh-cc__label">
-          <input type="checkbox" data-cat="advertising" />
-          <span>Advertising and affiliate partners</span>
-        </label>
-        <p class="tsh-cc__desc">
-          Allows advertising banners to load and lets the affiliate programmes
-          ({adNames}) track clicks. Without your consent, no advertising
-          tracker is placed.
-        </p>
-      </li>
-    </ul>
-    <div class="tsh-cc__actions">
-      <button type="button" class="tsh-cc__btn" data-action="refuse">Refuse all</button>
-      <button type="button" class="tsh-cc__btn" data-action="save">Save my choices</button>
+      <button type="button" class="tsh-cc__btn" data-action="ok">Got it</button>
     </div>
   </div>
 </div>
 
-<style>
+  <style>
   .tsh-cc {
     position: fixed;
     left: 0;
@@ -208,47 +162,20 @@ const prefix = "tsh";
 
 <script>
   const root = document.getElementById("tsh-cc");
-  const panel = document.getElementById("tsh-cc-panel");
-  const api = (window as unknown as Record<string, any>)["TSH_CONSENT"];
-  if (root && panel && api) {
-    const adsBox = panel.querySelector<HTMLInputElement>('[data-cat="advertising"]');
-
-    const show = () => {
-      root.hidden = false;
-      panel.hidden = true;
-    };
-    const hide = () => {
-      root.hidden = true;
-      panel.hidden = true;
-    };
-
-    const write = (advertising: boolean) => {
-      api.set({ necessary: true, analytics: true, advertising, ts: Date.now() });
-      // Un refus efface le stockage des réseaux d'affiliation déjà déposé.
-      if (!advertising) api.purge();
-      hide();
-    };
-
-    const openPreferences = () => {
-      const c = api.get();
-      if (adsBox) adsBox.checked = !!(c && c.advertising);
-      root.hidden = false;
-      panel.hidden = false;
-    };
+  if (root && window.TSH_CONSENT) {
+    const show = () => { root.hidden = false; };
+    const hide = () => { root.hidden = true; };
 
     root.addEventListener("click", (event) => {
       const target = event.target as HTMLElement;
-      const action = target.getAttribute("data-action");
-      if (!action) return;
-      if (action === "accept") write(true);
-      else if (action === "refuse") write(false);
-      else if (action === "customise") openPreferences();
-      else if (action === "save") write(!!(adsBox && adsBox.checked));
+      if (target.getAttribute("data-action") !== "ok") return;
+      window.TSH_CONSENT.set({ necessary: true, analytics: true, advertising: true, ts: Date.now() });
+      hide();
     });
 
-    // Exposed for the footer ("Privacy choices").
-    api.openPreferences = openPreferences;
+    // API exposée pour le pied de page (« Gérer les cookies »).
+    window.TSH_CONSENT.openPreferences = show;
 
-    if (!api.get()) show();
+    if (!window.TSH_CONSENT.get()) show();
   }
 </script>
