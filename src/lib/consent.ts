@@ -139,7 +139,9 @@ export const consentScript = `
       ad_user_data: ads ? "granted" : "denied",
       ad_personalization: ads ? "granted" : "denied"
     });
-    if (ads) scheduleLoadAds();
+    // Les emplacements publicitaires sont affichés à chaque visite,
+    // indépendamment du choix exprimé dans le bandeau cookies.
+    scheduleLoadAds();
   }
 
   // ---- Démarrage ----
